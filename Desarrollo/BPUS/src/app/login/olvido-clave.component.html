@@ -1,0 +1,41 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       olvido-clave
+    - Desarrollador:    Cristian Julián Andrade Murillo
+    - Descripción:      Esta es la ventana en la que se ingresa el correo institucional para enviar
+                        un código para cambiar la clave en caso de olvido
+    -Última modificación:  19/05/2019
+-->
+<div class="mt-5 usco-card animated fadeIn fast">
+    <div class="card-uscoHeader">
+        <h2>BANCO DE PROYECTOS</h2>
+    </div>
+    <div class="card-uscoContent">
+        <h3 class="text-center">¿OLVIDASTE LA CONTRASEÑA?</h3>
+        <h6 class="text-center font-weight-lighter font-italic">Por favor llene el formulario</h6>
+        <br>
+        <form [formGroup]="emailForm" (ngSubmit)="sendEmail()">
+            <div class="form-group">
+                <label for="email" class="font-weight-bold">Correo:</label>
+                <div class="input-group">
+                    <input formControlName="email" class="uscoInputs form-control" placeholder="Digite su Correo Institucional" id="email" maxlength="25" pattern="[^@]([A-Za-z0-9._]+){1,25}" required autofocus>
+                    <div class="input-group-append">
+                        <span class="input-group-text input-inside-button">@usco.edu.co</span>
+                    </div>
+                </div>
+                <h6 *ngIf="email.invalid && (email.dirty || email.touched)" style="color: red;">
+                    <div *ngIf="email.errors.required">
+                        <br> El correo es requerido.
+                    </div>
+                    <div *ngIf="email.errors.pattern">
+                        <br>El correo no es valido.
+                    </div>
+                </h6>
+            </div>
+            <div class="txtcenter">
+                <a href="javascript: history.back()" class="mr-5 uscolink">VOLVER ATRÁS</a>
+                <button type="submit" [disabled]="!emailForm.valid" class="btn uscoButton" (click)="showModal()">ENVIAR CORREO</button>
+            </div>
+        </form>
+    </div>
+</div>

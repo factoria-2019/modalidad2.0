@@ -1,0 +1,26 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       notificaciones.component
+    - Desarrollador:    Jorge Andres Cutiva Tafur
+    - Descripción:      Front de las notificaciones
+
+-->
+<body>
+    <br><br>
+    <div class='container animated fadeIn fast'>
+        <h2>Tus notificaciones</h2>
+        <br><br>
+        <table>
+            <tr *ngFor="let notificacion of notificaciones">
+                <td class="informacion">{{notificacion.emisor }}</td>
+                <td class="informacion">{{ notificacion.tipoNotificacionEmisor }}</td>
+                <td class="informacion">{{ notificacion.tipoNotificacionReceptor }}</td>
+                <td class="informacion">{{ notificacion.receptor}}</td>
+                <td class="confirmacion">
+                <td><input (click)="aceptarNotificacion(notificacion)" type="button" class="btn uscoButton" value="ACEPTAR" ></td>
+                <td><input (click)="rechazarNotificacion(notificacion)" type="button" class="btn uscoButton" value="RECHAZAR"></td>
+            </tr>
+        </table>
+        <!--   <p *ngIf="notifiVacia">No tienes ninguna notificación... :)</p>-->
+    </div>
+</body>

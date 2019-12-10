@@ -1,0 +1,28 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       Navbar de perfiles
+    - Desarrollador:    John David Guerrero Córdoba
+    - Descripción:      Menú de navegación realizado con dropdowns button, aplicado en todas las páginas
+                        pero se puede habilitar donde las requiera el diseño.  
+    -Última modificación:  20/07/2019   
+-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: auto;">
+  <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <div class="btn-group" role="group" >
+      <button  (click)="onToolbarMenuToggle()"  data-toggle="dropdown"  id="mainToolbar"  aria-haspopup="true" aria-expanded="false" id="btnGroupDrop1" class="btn btn-outline my-2 my-sm-0 rounded-circle " style="margin-right: 20px; align-items: center;background-color: #E8E8E8"><span class="fas fa-bars fa-lg"></span></button>
+      
+      <div *ngFor="let menu of _SIDEBAR.menu" class="dropdown-menu animated fadeIn fast"  aria-labelledby="btnGroupDrop1" style="background-color:#f6dbdb;margin-top: 5px; margin-left:-18px;width: 500%;padding: 0px;">
+    
+        <div class="card-uscoHeader text-center"  >
+        <h5 class="font-weight-bold text-left"> {{ usuario.nombres }} {{usuario.apellidos}}</h5>
+        <h6 class=" card-subtitle text-left"> {{ usuario.tipoUsuario }}</h6>
+        </div>
+        <a *ngFor="let menu of _SIDEBAR.menu" class=" pl-3 ">  <a *ngFor="let submenu of menu.submenu" class="dropdown-item uscoMenuNav pl-4" [routerLink]="[submenu.url]"> <i [class]="submenu.icono"></i>{{submenu.titulo}}</a></a>
+    
+        <a (click)="_USUARIOSERVICE.logout()"  class="dropdown-item uscoMenuNav "  href="#"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+
+</nav>

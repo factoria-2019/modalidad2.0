@@ -1,0 +1,54 @@
+<style>
+  .welcomeSemillero {
+    background-color: #F7F7F7;
+  }
+
+  .uscobg {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background-color: #F7F7F7;
+  }
+
+  .uscobtninscripcion {
+    background-color: rgb(143, 20, 27);
+    overflow: visible;
+    width: 184px;
+    white-space: nowrap;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgba(223, 212, 166, 1);
+  }
+</style>
+<div class="welcomeSemillero">
+
+  <div class="uscobg"></div>
+  <div class="container h-100">
+    <div class="row h-100 py-3 align-items-center justify-content-center">
+
+      <div class="col-sm-6">
+        <h1>
+          <strong> Inscribe tu Modalidad de Grado para convertirte en profesional con la Universidad
+            Surcolombiana</strong>
+        </h1>
+
+        <br>
+        <button type="button" routerLink="/semillero/form1"
+          class="btn btn-lg my-3 uscobtninscripcion">Inscríbite</button>
+
+
+          <button type="button" routerLink="/semillero/status"
+          class="btn btn-lg my-3 mx-2 uscobtninscripcion">Ver progreso</button>
+      </div>
+
+      <div class="col-sm-6 d-flex align-items-center">
+        <img class="mx-auto d-block img-fluid" src="../../assets/img/home.jpeg" alt="View">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,182 @@
+<div class="container">
+    <fieldset class="border p-3">
+      <legend  class="w-auto" style="background-color: #8F141B;color: #DFD4A6;padding: 5px">PROGRESO ACTUAL </legend>
+      <h6 class="uscoSearchTitulo text-left" style="margin: 0px;padding:0px;">Fecha:</h6><p class="uscoSesion text-left" style="margin: 0px;padding:0px;font-size: 15px">{{jstoday}}</p>
+      <br>
+
+       <!-- ***************************** SOLICITUD **********************************-->
+      <div class="row text-center" style="width: 100%">
+        <div class="col" style="width: 25%">
+
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne" style="background-color: #8F141B;color:#DFD4A6;">
+                    <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: #DFD4A6">
+                                SOLICITUD
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" style="padding: 0px;margin: 0px;">
+                    <div class="card-body" style="margin: 0px;padding: 0px">
+                            <div class="card text-center" style="width: 15.1rem;">
+                                    <div class="card-img-top centro" style="width: 80px;margin-top: 10px;">
+                                        <div class="dropdown">
+                                            <button routerLink='/solicitud' type="button" class="btn" style='font-size:80px; color:black;padding: 0px'><i class='far fa-file-alt'></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                      
+                                
+                                      <label for="" style="font-size: 12px">Fecha publicado: </label> <br>
+                                      <label for="" style="font-size: 12px">{{jstoday}}</label> <br>
+                                      
+                                      <label for="" style="font-size: 12px">Fecha aprobado</label><br>
+                                      <label for="" style="font-size: 12px">{{jstoday}}</label> <br>
+                                      
+                                      <label for="" style="font-size: 12px">Revisado</label><br>
+                                      <label for="" style="font-size: 12px"> Inserte nombre</label> <br>
+                                      
+                                    </div>
+                            </div>          
+                    </div>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                        <li class="list-group-item" style="background-color:#00A4B7;color: ghostwhite">Aprobado</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- ***************************** ANTEPROYECTO **********************************-->
+        <div class="col" style="width: 25%">
+                <div class="accordion" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingTwo" style="background-color: #8F141B;color:#DFD4A6;">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: #DFD4A6">
+                                  ANTEPROYECTO
+                              </button>
+                            </h2>
+                          </div>
+                      
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" style="padding: 0px;margin: 0px;">
+                            <div class="card-body" style="margin: 0px;padding: 0px">
+                                    <div class="card text-center" style="width: 15.1rem;">
+                                            <div class="card-img-top centro" style="width: 80px;margin-top: 10px;">
+                                                    <div class="dropdown">
+                                                        <button routerLink='/anteproyecto' type="button" class="btn" style='font-size:80px; color:black;padding: 0px'><i class='fas fa-pencil-alt'></i></button>
+                                                    </div>
+                                                </div>
+                                            <div class="card-body">
+                                                    
+                                                <label for="" style="font-size: 12px">Fecha publicado: </label> <br>
+                                                <label for="" style="font-size: 12px">{{jstoday}}</label> <br>
+                                                
+                                                <label for="" style="font-size: 12px">Fecha aprobado</label><br>
+                                                <label for="" style="font-size: 12px">{{jstoday}}</label> <br>
+                                                
+                                                <label for="" style="font-size: 12px">Revisado</label><br>
+                                                <label for="" style="font-size: 12px"> Inserte nombre</label> <br>
+                                            </div>
+                                            
+                                    </div>          
+                            </div>
+                          </div>
+                          <ul class="list-group list-group-flush">
+                                <li class="list-group-item" style="background-color:#00A4B7;color: ghostwhite">Aprobado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+        </div>
+
+         <!-- ***************************** PROYECTO **********************************-->
+        <div class="col" style="width: 25%">
+                <div class="accordion" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingThree" style="background-color: #8F141B;">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: #DFD4A6">
+                                PROYECTO
+                              </button>
+                            </h2>
+                          </div>
+                      
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample" style="padding: 0px;margin: 0px;">
+                            <div class="card-body" style="margin: 0px;padding: 0px">
+                                    <div class="card text-center" style="width: 15.1rem;">
+                                            <div class="card-img-top centro" style="width: 80px;margin-top: 10px;">
+                                                    <div class="dropdown">
+                                                        <button routerLink='/proyecto' type="button" class="btn" style='font-size:80px; color:black;padding: 0px'><i class='fas fa-puzzle-piece'></i></button>
+                                                    </div>
+                                                </div>
+                                            <div class="card-body">
+                                                   
+                                                    
+                                                <label for="" style="font-size: 12px">Fecha publicado: </label> <br>
+                                                <label for="" style="font-size: 12px">{{jstoday}}</label> <br>
+                                                
+                                                <label for="" style="font-size: 12px">Fecha aprobado</label><br>
+                                                <label for="" style="font-size: 12px">{{jstoday}}</label> <br>
+                                                
+                                                <label for="" style="font-size: 12px">Revisado</label><br>
+                                                <label for="" style="font-size: 12px"> Inserte nombre</label> <br>
+                                            </div>
+                                    </div>          
+                            </div>
+                          </div>
+                          <ul class="list-group list-group-flush">
+                                <li class="list-group-item" style="color: ghostwhite;background-color: rgb(216, 25, 0)">Rechazado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+        </div>
+         <!-- ***************************** ARTICULO **********************************-->
+        <div class="col" style="width: 25%">
+                <div class="accordion" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingFour" style="background-color: #8F141B;">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="color: #DFD4A6">
+                                ARTÍCULO
+                              </button>
+                            </h2>
+                          </div>
+                      
+                          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample" style="padding: 0px;margin: 0px;">
+                            <div class="card-body" style="margin: 0px;padding: 0px">
+                                    <div class="card text-center" style="width: 15.1rem;">
+                                            <div class="card-img-top centro" style="width: 80px;margin-top: 10px;">
+                                                    <div class="dropdown">
+                                                        <button routerLink='/articulo' type="button" class="btn" style='font-size:80px; color:black;padding: 0px'><i class="fas fa-scroll"></i></button>
+                                                    </div>
+                                                </div>
+                                            <div class="card-body">
+                                                   
+  
+                                                <label for="" style="font-size: 12px">Fecha publicado: </label> <br>
+                                                <label for="" style="font-size: 12px">{{jstoday}}</label> <br>
+                                                
+                                                <label for="" style="font-size: 12px">Fecha aprobado</label><br>
+                                                <label for="" style="font-size: 12px">{{jstoday}}</label> <br>
+                                                
+                                                <label for="" style="font-size: 12px">Revisado</label><br>
+                                                <label for="" style="font-size: 12px"> Inserte nombre</label> <br>
+                                            </div>
+                                    </div>          
+                            </div>
+                          </div>
+                          <ul class="list-group list-group-flush">
+                                <li class="list-group-item" style="background-color:rgb(0, 189, 79);color: ghostwhite">Pendiente</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+        </div>
+      </div>
+    </fieldset>
+  </div>

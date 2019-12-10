@@ -1,0 +1,56 @@
+.bodySemillero{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    color: rgba(77, 98, 108, 1);
+    /* background-color: #F7F7F7; */
+ 
+}
+
+
+.btnFormInscripcion{
+    background-color: rgb(143, 20, 27);
+    overflow: visible;
+    width: 184px;
+    white-space: nowrap;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgba(223, 212, 166, 1);
+}
+
+.btnFormInscripcion:hover{
+    color: rgb(165, 158, 130);
+}
+
+.btnFormInscripcionCancel{
+    overflow: visible;
+    width: 184px;
+    white-space: nowrap;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: #8f141b;
+    border: solid 1px #8f141b;
+}
+.btnFormInscripcionCancel:hover{
+    color: #701f23;
+
+}
+.textOrderForm{
+    color: #8F141B;
+
+}
+.uscobtninscripcion {
+    background-color: rgb(143, 20, 27);
+    overflow: visible;
+    width: 184px;
+    white-space: nowrap;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgba(223, 212, 166, 1);
+  }

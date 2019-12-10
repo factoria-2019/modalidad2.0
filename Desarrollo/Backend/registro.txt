@@ -1,0 +1,12 @@
+*correo
+*contraseña
+*tipodeusuario <
+*tipodeID <
+*codigoEstudiante
+*NumerodeDocumento
+*Nombres
+*Apellidos
+*TELEFONO
+*SEDEUNIVERSITARIA <
+*FACULTAD <
+*PROGRAMA <

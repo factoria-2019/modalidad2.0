@@ -1,0 +1,37 @@
+h3 {
+    font-weight: 700
+}
+
+h4 {
+    font-weight: 700
+}
+
+.display-5 {
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.bigletter {
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.classcheck input {
+    margin-top: 50%;
+    height: 25px;
+    width: 25px;
+}
+
+.btnatras {
+    color: black;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.triangulo {
+    position: absolute;
+    margin-top: 4px;
+    border-right: 20px solid #8F141B;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}

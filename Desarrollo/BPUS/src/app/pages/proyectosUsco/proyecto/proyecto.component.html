@@ -1,0 +1,24 @@
+<div class="mt-3 container animated fadeIn fast">
+   
+    <div class="w-75 mx-auto card shadow">
+        <div class="card-uscoHeader">
+            <h3>Sube tu Proyecto</h3>
+        </div>
+        <div class="card-body">
+            <form>
+                    <p>Descarga la plantilla del proyecto
+                            <a download="04-Formato Trabajo Final de grado.pdf" href="../../../../assets/04-Formato Trabajo Final de grado.pdf">aquí</a>
+                        </p>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="comment">Palabras clave:</label>
+                    <textarea class="form-control" rows="5" id="keyWords"></textarea>
+                </div>
+                <ngx-dropzone class="custom-dropzone" [multiple]="false" [showPreviews]="true" #dropzone (filesAdded)="onFilesAdded($event)" (filesRejected)="onFilesRejected($event)" class="custom-dropzone" [label]="'Arrastra el archivo aquí (o click)'"></ngx-dropzone>
+                <div class="mt-3 text-center">
+                    <button class="btn uscoButton" (click)="dropzone.reset()">Cancelar</button>
+                    <button class="btn uscoButton" type="submit">Enviar <i class="far fa-save fa-lg"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

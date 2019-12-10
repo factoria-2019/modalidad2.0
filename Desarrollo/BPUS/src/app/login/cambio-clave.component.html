@@ -1,0 +1,56 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       cambio-clave
+    - Desarrollador:    Cristian Julián Andrade Murillo
+    - Descripción:      Esta es la ventana en la que una se cambia de clave cuando el código de validación
+                        es verificado.  
+    -Última modificación:  18/05/2019   
+-->
+<div class="mt-5 usco-card">
+    <div class="card-uscoHeader animated fadeIn fast">
+        <h2>BANCO DE PROYECTOS</h2>
+    </div>
+    <div class="card-uscoContent">
+        <h3 class="text-center ">¿OLVIDASTE LA CONTRASEÑA?</h3>
+        <h6 class="text-center font-weight-lighter font-italic ">Por favor llene el formulario</h6>
+        <br>
+        <form [formGroup]="passwordForm" (ngSubmit)="savePassword()" appPasswordMismatch>
+            <div class="mx-5 form-group">
+                <label for="newPassword" class="font-weight-bold ">CONTRASEÑA NUEVA:</label>
+                <div class="mb-2 input-group">
+                    <input type="password" formControlName="password" class="uscoInputs form-control" id="newPassword" placeholder="Digite una nueva contraseña" maxlength="30" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&]).{8,30}" required>
+                    <div class="input-group-append">
+                        <button class="input-group-text input-inside-button" type="button" (click)="showpassword('newPassword','showpass1')"><i class='far fa-eye-slash' id="showpass1"></i></button>
+                    </div>
+                </div>
+                <p id="passwordPatter">Usa 8 o más caracteres con una combinación de letras, números y símbolos</p>
+            </div>
+            <h6 *ngIf="password.invalid && (password.dirty || password.touched)" class="mx-5" style="color:red;">
+                <div *ngIf="password.errors.required">
+                    La contraseña es requerida.
+                </div>
+            </h6>
+            <div class="mx-5 form-group">
+                <label for="confirmNewPassword" class="font-weight-bold ">CONFIRME SU CONTRASEÑA:</label>
+                <div class="mb-2 input-group">
+                    <input type="password" formControlName="passwordComprobar" class="uscoInputs form-control" id="confirmNewPassword" placeholder="Confirme la contraseña" maxlength="30" required>
+                    <div class="input-group-append">
+                        <button class="input-group-text input-inside-button" type="button" (click)="showpassword('confirmNewPassword','showpass2')"><i class='far fa-eye-slash' id="showpass2"></i></button>
+                    </div>
+                </div>
+            </div>
+            <h6 *ngIf="passwordComprobar?.invalid && (passwordComprobar.dirty || passwordComprobar.touched)" class="mx-5" style="color: red;">
+                <div *ngIf="passwordComprobar.errors.required">
+                    La confirmación de la contraseña es requerida.
+                </div>
+            </h6>
+            <h6 *ngIf="passwordForm.errors?.mismatch" class="mx-5" style="color: red;">
+                Las contraseñas no coinciden.
+            </h6>
+            <div class="txtcenter">
+                <a routerLink="/search" class="mr-5 btn btn-info">CANCELAR</a>
+                <button type="submit" [disabled]="!passwordForm.valid" class="btn uscoButton">CONFIRMAR</button>
+            </div>
+        </form>
+    </div>
+</div>

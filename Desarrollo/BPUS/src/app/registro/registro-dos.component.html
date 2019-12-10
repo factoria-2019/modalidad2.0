@@ -1,0 +1,53 @@
+<div class="mt-5 usco-card shadow-lg">
+    <div class="card-uscoHeader">
+        <h2 class="text-center">REGISTRATE</h2>
+    </div>
+    <div class="card-uscoContent animated fadeIn fast">
+        <form [formGroup]="forma" (ngSubmit)="nextRegistro()">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h6>TIPO DE USUARIO</h6>
+                    <select formControlName="tipoUsuario" name="tipoUsuario" class="custom-select uscoInputs mb-3">
+                        <option selected value="Estudiante">Estudiante</option>
+                        <option value="Docente">Docente</option>
+                    </select>
+                    <h6>TIPO DE IDENTIFICACION</h6>
+                    <select formControlName="tipoID" name="tipoID" class="custom-select uscoInputs mb-3">
+                        <option selected value="C.C">C.C</option>
+                        <option value="T.I">T.I</option>
+                    </select>
+                </div>
+                <div class="col-sm-7">
+                    <div *ngIf="tipoUsuario.value == 'Estudiante'" class="form-group">
+                        <label for="code" class="font-weight-bold">CÓDIGO ESTUDIANTIL</label>
+                        <input formControlName="codigoUniversitario" class="uscoInputs" type="text" name="code" placeholder="Digite su código" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' maxlength="11" required pattern="([0-9]){11}">
+                        <h6 *ngIf="codigoUniversitario.invalid && (codigoUniversitario.dirty || codigoUniversitario.touched)" class="mt-2" style="color: red;">
+                            <div *ngIf="codigoUniversitario.errors.required">
+                                El código universitario es requerido.
+                            </div>
+                            <div *ngIf="codigoUniversitario.errors.pattern">
+                                Deber ser de 11 carácteres solo numéricos.
+                            </div>
+                        </h6>
+                    </div>
+                    <div class="form-group">
+                        <label for="id" class="font-weight-bold">NÚMERO DE DOCUMENTO</label>
+                        <input formControlName="numDocumento" class="uscoInputs" type="text" name="id" placeholder="Digite su ID" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' maxlength="10" required pattern="([0-9]){8,10}">
+                        <h6 *ngIf="numDocumento.invalid && (numDocumento.dirty || numDocumento.touched)" class="mt-2" style="color:red;">
+                            <div *ngIf="numDocumento.errors.required">
+                                El número de documento es requerido.
+                            </div>
+                            <div *ngIf="numDocumento.errors.pattern">
+                                El ID es entre 8-10 carácteres solo numéricos.
+                            </div>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="txtcenter">
+                <a class="mr-5 uscolink" routerLink="/registro">VOLVER ATRÁS</a>
+                <input type="submit" value="SIGUIENTE" [disabled]="!forma.valid" class="btn uscoButton">
+            </div>
+        </form>
+    </div>
+</div>

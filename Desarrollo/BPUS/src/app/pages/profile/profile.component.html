@@ -1,0 +1,96 @@
+<div class="mt-5 usco-card shadow-lg animated fadeIn fast">
+    <div class="card-uscoHeader text-center">
+        <h5 class="pt-5 font-weight-bold">{{ usuario.nombres }} {{usuario.apellidos}}</h5>
+        <h6 class="pb-5 card-subtitle">{{ usuario.tipoUsuario }}</h6>
+    </div>
+    <div class="card-body">
+        <ul class="nav nav-justified" role="tablist">
+            <li class="nav-item">
+                <a (click)="activeTab('personalTab')" id="personalTab" class="nav-link activeTab font-weight-bold" href="#profile" role="tab" data-toggle="tab">Información personal</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="activeTab('academicTab')" id="academicTab" class="nav-link text-body" href="#buzz" role="tab" data-toggle="tab">Información académica</a>
+            </li>
+        </ul>
+
+        <!-- tabs panes -->
+        <div class="mt-4 px-5 tab-content">
+            <div role="tabpanel" class="tab-pane fade show active" id="profile">
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>Tipo de ID</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.tipoID}}</p>
+                    </div>
+                </div>
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>ID</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.numDocumento}}</p>
+                    </div>
+                </div>
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>Género</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.genero}}</p>
+                    </div>
+                </div>
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>Email</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.email}}</p>
+                    </div>
+                </div>
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>Teléfono</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.telefono}}</p>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="buzz">
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>Código</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.codigoUniversitario}}</p>
+                    </div>
+                </div>
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>Sede</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.sedeUniversitaria}}</p>
+                    </div>
+                </div>
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>Facultad</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.facultad}}</p>
+                    </div>
+                </div>
+                <div class="ml-3 row">
+                    <div class="pl-5 col-md-5">
+                        <label>Programa</label>
+                    </div>
+                    <div class="pr-5 col-md-7">
+                        <p>{{usuario.programaUniversitario}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

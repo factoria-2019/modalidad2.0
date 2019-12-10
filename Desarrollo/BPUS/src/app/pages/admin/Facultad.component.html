@@ -1,0 +1,103 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       Perfil Admin
+    - Desarrollador:    John David Guerrero Córdoba - Cristian Julián Andrade Murillo
+    - Descripción:      Perfil Admin con rutas hijas para CRUD de tablas
+    -Última modificación:  27/07/2019   
+-->
+
+<!---->
+<br>
+<h3 class="text-uppercase animated fadeIn fast">Facultades</h3>
+<h6 class="text-left text-uppercase" style="margin-top: 2%">Facultades Registradas (<small>{{ _facultadService.totalFacultades }}</small>)</h6>
+
+<div class="text-right" style="padding: 1%">
+    <button (click)="openModal(agregarFacultad)" class="btn btn-outline-dark" style="margin:2px"><span class="fas fa-user-plus fa-2x"></span></button>
+    <button class="btn btn-outline-dark" style="margin:2px"><span class="fas fa-redo-alt fa-2x"></span></button>
+</div>
+<div class="table-responsive-md animated fadeIn fast">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="tablaAdmin">
+                <th scope="col" style="width: 10%" class="align-middle">ID</th>
+                <th scope="col" style="width: 10%" class="align-middle">Nombre de la facultad</th>
+                <th scope="col" style="width: 10%" class="align-middle">Teléfono</th>
+                <th scope="col" style="width: 10%" class="align-middle">Correo</th>
+                <th scope="col" style="width: 10%" class="align-middle colorRojo">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let falcultad of facultades;  let i = index;">
+                <th scope="row">{{i+1}}</th>
+                <td>{{ falcultad.nombre}}</td>
+                <td>{{ falcultad.telefono}}</td>
+                <td>{{ falcultad.email}}</td>
+                <td>
+                    <div class="row">
+                        <div class="col text-left" style="width: 50%;padding: 2%">
+                            <button (click)="editarFacultad(falcultad)" class="btn btn-outline-success" style="width: 100%;padding: 0%"><span class="fas fa-pencil-alt"></span></button>
+                        </div>
+                        <div class="col text-right" style="width: 50%;padding: 2%">
+                            <button (click)="borrarFacultades(falcultad)" class="btn btn-outline-danger" style="width: 100%;padding: 0%"><span class="far fa-trash-alt"></span></button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col text-right">
+            <button class="btn btn-outline-dark" style="width: 50px;margin-right: 2px"><span class="fas fa-arrow-left"></span></button>
+            <input class="" type="text" value="1" style="width: 45px;height: 37px;margin: 0px;padding-bottom: 8px;text-align: center">
+            <button class="btn btn-outline-dark" style="width: 50px;margin-left: 2px"><span class="fas fa-arrow-right"></span></button>
+        </div>
+    </div>
+</div>
+
+<!--Modal de agregar facultad-->
+<ng-template #agregarFacultad let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Agregar Facultad</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="forma" (ngSubmit)="crearFacultad()">
+            <div class="mt-3 form-group text-left">
+                <label for="correo" class="font-weight-bold text-uppercase">NOMBRE:</label>
+                <input type="text" formControlName="nombre" placeholder="Ingrese el nombre" class="uscoInputs form-control" maxlength="25" required autofocus>
+                <h6 *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="mt-2" style="color:red;">
+                    <div *ngIf="nombre.errors.required">
+                        El nombre es requerido.
+                    </div>
+                </h6>
+            </div>
+            <div class="form-group text-left">
+                <label for="correo" class="font-weight-bold text-uppercase">teléfono:</label>
+                <input type="text" formControlName="telefono" placeholder="Ingrese el teléfono" class="uscoInputs form-control" maxlength="25" required>
+                <h6 *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="mt-2" style="color:red;">
+                    <div *ngIf="telefono.errors.required">
+                        La ciudad es requerida.
+                    </div>
+                </h6>
+            </div>
+            <div class="form-group text-left">
+                <label for="email" class="font-weight-bold text-uppercase">CORREO:</label>
+                <input type="email" formControlName="email" placeholder="Ingrese el correo" class="uscoInputs form-control" maxlength="25" required>
+                <h6 *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-2" style="color:red;">
+                    <div *ngIf="email.errors.required">
+                        El correo es requerido.
+                    </div>
+                </h6>
+            </div>
+            <div class="txtcenter">
+                <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+                <button type="submit" [disabled]="!forma.valid" class="btn uscoButton">CREAR</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+<!--Cierre del modal de agregar facultad-->

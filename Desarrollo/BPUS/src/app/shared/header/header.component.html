@@ -1,0 +1,81 @@
+<header class="all header" >
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col text-left">
+                <a href="#" title="Universidad Surcolombiana">
+                    <img style="height: 100px;align-content: center" src="../../assets/logo-BPUS.png" alt="Universidad Surcolombiana">
+                </a>
+            </div>
+
+            <div class="col text-center">
+                <a title="Universidad Surcolombiana">
+                    <img style="width: 400px;margin: 20px;align-content: center" src="../../assets/universidad-surcolombiana-acreditacion.png" alt="Universidad Surcolombiana">
+                </a>
+            </div>
+            <div class="col text-right">
+                <div class="row text-right">
+                    <div class="col-auto text-right" *ngIf="sesionLogo()" style="padding: 5px">
+                        <div class="dropdown">
+                            <button routerLink='/informacion' type="button" class="btn" style='font-size:36px; color:#dfd4a6;padding: 0px;margin-left: 145px'><i class='far fa-question-circle'></i></button>
+                        </div>
+                    </div>
+                    <div class="col-auto text-right" *ngIf="sesionLogo()" style="padding: 5px">
+                        <div class="dropdown">
+                            <button routerLink='/notificaciones' type="button" class="btn" style='font-size:36px; color:#dfd4a6;padding: 0px;margin:0px'><i class='fas fa-bell'></i></button>
+                        </div>
+                    </div>
+                    <div class="col-auto text-right" *ngIf="sesionLogo()" style="padding: 5px">
+                            <div class="dropdown">
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" style='font-size:36px; color:#dfd4a6;padding: 0px;margin:0px'><i class='fas fa-user-circle'></i></button>
+                                <div class="dropdown-menu animated fadeIn fast" style="margin-top: 25px;background-color: #8F141B;">
+                                    <a class="dropdown-item" routerLink='/perfil' style="color: #dfd4a6">Perfil</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a (click)="_usuarioService.logout()" class="dropdown-item" routerLink='/search' style="color: #dfd4a6"><i class="fas fa-sign-out-alt"></i>  Cerrar sesión </a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- INFORMACIÓN
+             <div *ngIf="sesionLogo()"  class="col text-right" >
+               
+                    <div class="dropdown">
+                        <button routerLink='/informacion' type="button" class="btn" style='font-size:36px; color:#dfd4a6'><i class='far fa-question-circle'></i></button>
+                    </div>
+                </div>
+                -->
+            <!-- NOTIFICACIONES
+            <div *ngIf="sesionLogo()"  class="col text-right" >
+               
+                <div class="dropdown">
+                    <button routerLink='/notificaciones' type="button" class="btn" style='font-size:36px; color:#dfd4a6'><i class='fas fa-bell'></i></button>
+                </div>
+            </div>
+-->
+            <!-- PERFIL
+            <div *ngIf="sesionLogo()" class="col text-right">
+             
+                    <div class="dropdown">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" style='font-size:36px; color:#dfd4a6'><i class='fas fa-user-circle'></i></button>
+                        <div class="dropdown-menu animated fadeIn fast">
+                            <a class="dropdown-item" routerLink='/perfil'>Perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a (click)="_usuarioService.logout()" class="dropdown-item" routerLink='/search'>Cerrar sesión</a>
+                        </div>
+                    </div>
+            </div>
+             -->
+            <div *ngIf="!sesionLogo()">
+                <a routerLink="/login" class="mr-4" style="color:#dfd4a6">Iniciar sesión</a>
+            </div>
+            <div *ngIf="!sesionLogo()">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown"></div>
+                <a routerLink="/registro" style="color:#dfd4a6">Registrarse</a>
+            </div>
+
+        </div>
+    </div>
+
+</header>

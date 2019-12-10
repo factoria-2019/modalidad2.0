@@ -1,0 +1,149 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       Barra buscador de proyectos
+    - Desarrollador:    John David Guerrero Córdoba
+    - Descripción:      La seccción donde se buscarán los proyectos por distintos filtros (palabras claves,
+                        categoría,carrera y fecha).  
+    -Última modificación:  25/06/2019   
+-->
+
+<app-navbar *ngIf="sesionLogo()"></app-navbar>
+
+
+<div class="container animated fadeIn fast" style="margin-top: 5px;">
+  <h1 class="uscoSearchTitulo txtcenter">BUSQUE UN PROYECTO DE INTERÉS</h1>
+  <form action="">
+    <input class="uscoInputSearch" type="text"  placeholder="Digite una palabra clave">
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-sm">
+        <h5 class="uscoSearchTitulo txtcenter">Busque por:</h5>
+      </div>
+      <div class="col-sm">
+        <select id="inputState" class="selectSearch"  ng-model="misCategorias">
+          <option value="null">Categoría</option>
+          <option value="inv">INVESTIGACIÓN</option>
+          <option value="dis">DISEÑOS</option>
+          <option value="inn">INNOVACIÓN</option>
+        </select>
+      </div>
+        <div class="col-sm">
+            <select id="inputState" class="selectSearch">
+                <option>Carrera</option>
+                <option>INGENIERÍA DE SOFTWARE</option>
+              </select>
+        </div>
+        <div class="col-sm">
+          <input placeholder="Fecha" class="selectSearch" id="date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" style="height: 41px">
+        </div>
+        <div class="col-sm">
+            <input type="button" class="btn uscoButton" value="BUSCAR" style="width: 130px;height: 40px;border-radius: 50px;margin: 0px;">
+        </div>
+      </div>
+      <h4 class="uscoSearchTitulo txtcenter" style="margin: 20px">DOCUMENTOS RECIENTES</h4>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="categoriasSearch" ng-show="misCategorias=='inv'"> 
+                <h6 class="colorCategoria">INVESTIGACIÓN</h6>
+              <div class="row">
+                <div class="col-sm">
+                    <div class="card centro" style="width: 180px;background-color: #ebe4c7;padding: 10px">
+                      <img src="../assets/icoPdf.png" class="centro" alt="..."  style="width: 80px;margin-top: 10px;">
+                      <div class="card-body" style="text-align: left;padding: 10px;">
+                          <label class="font-weight-bold" for="">Nombre:</label><br>
+                          <label class="font-weight-bold" for="">Fecha:</label><br>
+                          <label class="font-weight-bold" for="">Autor:</label><br>
+                          <div style="text-align: right;">
+                              <a href="">ver más</a><br>
+                            </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                  <div class="card" style="width:180px;background-color: #ebe4c7;padding: 10px">
+                      <img src="../assets/icoPdf.png" class="centro" alt="..." style="width: 80px;margin-top: 10px;">
+                      <div class="card-body" style="text-align: left;padding: 10px;">
+                        <label class="font-weight-bold" for="">Nombre:</label><br>
+                        <label class="font-weight-bold" for="">Fecha:</label><br>
+                        <label class="font-weight-bold" for="">Autor:</label><br>
+                        <div style="text-align: right;">
+                          <a href="">ver más</a><br>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+              <div class="categoriasSearch">
+                  <h6 class="colorCategoria">DISEÑOS</h6>
+                <div class="row">
+                  <div class="col-sm">
+                      <div class="card centro" style="width: 180px;background-color: #ebe4c7;padding: 10px">
+                        <img src="../assets/icoPdf.png" class="centro" alt="..."  style="width: 80px;margin-top: 10px;">
+                        <div class="card-body" style="text-align: left;padding: 10px;">
+                            <label class="font-weight-bold" for="">Nombre:</label><br>
+                            <label class="font-weight-bold" for="">Fecha:</label><br>
+                            <label class="font-weight-bold" for="">Autor:</label><br>
+                            <div style="text-align: right;">
+                                <a href="">ver más</a><br>
+                              </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card centro" style="width:180px;background-color: #ebe4c7;padding: 10px">
+                        <img src="../assets/icoPdf.png" class="centro" alt="..." style="width: 80px;margin-top: 10px;">
+                        <div class="card-body" style="text-align: left;padding: 10px;">
+                          <label class="font-weight-bold" for="">Nombre:</label><br>
+                          <label class="font-weight-bold" for="">Fecha:</label><br>
+                          <label class="font-weight-bold" for="">Autor:</label><br>
+                          <div style="text-align: right;">
+                            <a href="">ver más</a><br>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-sm">
+            <div class="categoriasSearch centro" style="width: 525px;">
+                <h6 class="colorCategoria">INNOVACIÓN</h6>
+              <div class="row">
+                <div class="col-sm">
+                    <div class="card centro" style="width: 180px;background-color: #ebe4c7;padding: 10px">
+                      <img src="../assets/icoPdf.png" class="centro" alt="..."  style="width: 80px;margin-top: 10px;">
+                      <div class="card-body" style="text-align: left;padding: 10px;">
+                          <label class="font-weight-bold" for="">Nombre:</label><br>
+                          <label class="font-weight-bold" for="">Fecha:</label><br>
+                          <label class="font-weight-bold" for="">Autor:</label><br>
+                          <div style="text-align: right;">
+                              <a href="">ver más</a><br>
+                            </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                  <div class="card" style="width:180px;background-color: #ebe4c7;padding: 10px">
+                      <img src="../assets/icoPdf.png" class="centro" alt="..." style="width: 80px;margin-top: 10px;">
+                      <div class="card-body" style="text-align: left;padding: 10px;">
+                        <label class="font-weight-bold" for="">Nombre:</label><br>
+                        <label class="font-weight-bold" for="">Fecha:</label><br>
+                        <label class="font-weight-bold" for="">Autor:</label><br>
+                        <div style="text-align: right;">
+                          <a href="">ver más</a><br>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </form>
+</div>

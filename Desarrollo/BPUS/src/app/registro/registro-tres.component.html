@@ -1,0 +1,85 @@
+<div class="mt-5 usco-card shadow-lg">
+    <div class="card-uscoHeader">
+        <h2 class="text-center">REGISTRATE</h2>
+    </div>
+    <div class="card-uscoContent animated fadeIn fast">
+        <form [formGroup]="forma" (ngSubmit)="registrarUsuario()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="nombre" class="font-weight-bold">NOMBRES</label>
+                        <input formControlName="nombres" type="text" class="uscoInputs" name="nombre" placeholder="Digite su nombre" onkeypress='return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 192 && event.charCode <= 255) || event.charCode ==32'
+                            maxlength="50" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+){2,50}" required autofocus>
+                        <h6 *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)" class="mt-2" style="color:red;">
+                            <div *ngIf="nombres.errors.required">
+                                EL nombre es requerido.
+                            </div>
+                            <div *ngIf="nombres.errors.pattern">
+                                El nombre no es valido.
+                            </div>
+                        </h6>
+                    </div>
+                    <h6>SEDE UNIVERSITARIA</h6>
+                    <select formControlName="sedeUniversitaria" name="cars" class="custom-select uscoInputs mb-3">
+                     
+                        <option value="Gárzon">Gárzon</option>
+                        <option value="La plata">La plata</option>
+                        <option selected value="Neiva">Neiva</option>
+                        <option value="Pitalito">Pitalito</option>
+                    </select>
+                    <h6>FACULTAD</h6>
+                    <select formControlName="facultad" name="cars" class="custom-select uscoInputs mb-3">
+                      
+                        <option selected value="Ingeniería">Ingeniería</option>
+                        
+                    </select>
+                    <h6>PROGRAMA</h6>
+                    <select formControlName="programaUniversitario" name="cars" class="custom-select uscoInputs mb-3">
+                        <option selected value="Ingeniería de software">Ingeniería de software</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="code" class="font-weight-bold">APELLIDOS</label>
+                        <input formControlName="apellidos" class="uscoInputs" type="text" name="code" placeholder="Digite sus apellidos" onkeypress='return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 192 && event.charCode <= 255) || event.charCode ==32'
+                            maxlength="50" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+){2,50}" required>
+                        <h6 *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)" class="mt-2" style="color:red;">
+                            <div *ngIf="apellidos.errors.required">
+                                Los apellidos son requeridos.
+                            </div>
+                            <div *ngIf="apellidos.errors.pattern">
+                                Los apellidos no son validos.
+                            </div>
+                        </h6>
+                    </div>
+                    <div class="form-group">
+                        <label for="id" class="font-weight-bold">TELÉFONO</label>
+                        <input formControlName="telefono" class="uscoInputs" type="text" name="id" placeholder="Digite su número teléfonico" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' maxlength="10" required pattern="([0-9]){10}" required>
+                        <h6 *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="mt-2" style="color:red;">
+                            <div *ngIf="telefono.errors.required">
+                                El teléfono es requerido.
+                            </div>
+                            <div *ngIf="telefono.errors.pattern">
+                                El teléfono no es valido.
+                            </div>
+                        </h6>
+                    </div>
+                    <h6>GÉNERO:</h6>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="generoRadioM" formControlName="genero" name="genero" value="Masculino">
+                        <label class="custom-control-label" for="generoRadioM">Masculino</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="generoRadioF" formControlName="genero" name="genero" value="Femenino">
+                        <label class="custom-control-label" for="generoRadioF">Femenino</label>
+                    </div>
+                    <div class="mt-3 g-recaptcha" data-sitekey="6LePQaQUAAAAAIjw9HuJbJkbkTt7MrsNW1DMxnar" style="transform:scale(0.85);-webkit-transform:scale(0.85);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+                </div>
+            </div>
+            <div class="txtcenter">
+                <a class="mr-5 uscolink" routerLink="/registro-dos">VOLVER ATRÁS</a>
+                <input type="submit" value="REGISTRARSE" [disabled]="!forma.valid" class="btn uscoButton">
+            </div>
+        </form>
+    </div>
+</div>

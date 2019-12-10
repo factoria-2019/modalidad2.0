@@ -1,0 +1,5 @@
+taskkill /F /PID nro_pid 
+
+netstat -naob > aplicaciones_puertos.txt
+
+netstat -a

@@ -1,0 +1,50 @@
+<!-- <h1>ID 01!!!</h1> -->
+
+<div class="col-8 mx-auto my-5">
+    <div class="d-flex justify-content-between">
+        <h3 class="text-left">Identificacion del Semillero</h3>
+        <h5 class="text-right textOrderForm">Formulario 1/4</h5>
+
+    </div>
+    <form [formGroup]="registrationForm" (ngSubmit)=onSubmit()>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Programa o departamento</label>
+            <select id="inputState" class="form-control" formControlName="NombrePrograma" required>
+                <option selected>Seleccione</option>
+                <option *ngFor="let programa of programas">{{programa.name}}</option>
+
+            </select>
+          </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Grupo de investigacion al que esta vinculado</label>
+            <select id="inputState" class="form-control" formControlName="GrupoInvestigacion" required>
+                <option selected>Seleccione</option>
+                <option *ngFor="let grupo of gruposInvestigacion">{{grupo.name}}</option>
+            </select>
+             </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nombre del semillero</label>
+            <select id="inputState" class="form-control" formControlName="NombreSemillero" required>
+                <option selected>Seleccione</option>
+                <option *ngFor="let semillero of semilleros">{{semillero.name}}</option>
+            </select>
+
+          </div>
+
+
+        <div class="nav nav-pills nav-fill mt-5">
+            <!-- <button type="submit" class="nav-item btn btnFormInscripcionCancel btn-lg mx-2">Cancelar Proceso</button> -->
+            <a class="nav-item btn btnFormInscripcionCancel btn-lg mx-2" routerLink="/semillero">Cancelar Proceso</a>
+            <button class="nav-item btn btn-lg mx-2 btnFormInscripcion" type="submit">enviar</button>
+
+        </div>
+
+    </form>
+
+
+
+</div>

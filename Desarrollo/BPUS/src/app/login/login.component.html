@@ -1,0 +1,50 @@
+<div class="mt-5 usco-card shadow-lg">
+    <div class="card-uscoHeader">
+        <h2>Iniciar sesión</h2>
+    </div>
+    <div class="card-uscoContent animated fadeIn fast">
+        <form ngNativeValidate [formGroup]="loginForm" (ngSubmit)="ingresar(loginForm)" id="loginform">
+            <div class="mx-5 form-group">
+                <div class="txtcenter">
+                    <label for="id" class="font-weight-bold">USUARIO:</label>
+                </div>
+                <input class="uscoInputs form-control" type="text" name="numDocumento" placeholder="Digite su número de ID" maxlength="10" pattern="([0-9]){8,10}" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' formControlName="numDocumento" required>
+                <h6 *ngIf="numDocumento.invalid && (numDocumento.dirty || numDocumento.touched)" class="mt-2" style="color:red;">
+                    <div *ngIf="numDocumento.errors.required">
+                        El ID es requerido.
+                    </div>
+                    <div *ngIf="numDocumento.errors.pattern">
+                        El ID debe ser numérico entre 8-10 dígitos.
+                    </div>
+                </h6>
+            </div>
+
+            <div class="mx-5 form-group">
+                <div class="txtcenter">
+                    <label for="password" class="font-weight-bold">CONTRASEÑA:</label>
+                </div>
+                <div class="input-group">
+                    <input name="password" class="uscoInputs form-control" type="password" id="password" placeholder="Digite su contraseña" maxlength="30" required formControlName="password">
+                    <div class="input-group-append">
+                        <button class="input-group-text input-inside-button" type="button" (click)="showpassword()"><i class='far fa-eye-slash' id="showpass"></i></button>
+                    </div>
+                </div>
+                <h6 *ngIf="password.invalid && (password.dirty || password.touched)" class="mt-2" style="color:red;">
+                    <div *ngIf="password.errors.required">
+                        La contraseña es requerida.
+                    </div>
+                </h6>
+            </div>
+
+            <div class="txtcenter">
+                <a class="btn uscoButton" routerLink="/registro">REGISTRARSE</a>
+                <input type="submit" [disabled]="!loginForm.valid" class="btn uscoButton" value="ENTRAR">
+            </div>
+        </form>
+        <br>
+        <div class="txtcenter">
+            <a class="uscolink" routerLink="/olvido-clave">¿Olvidó su contraseña?</a>
+        </div>
+    </div>
+
+</div>

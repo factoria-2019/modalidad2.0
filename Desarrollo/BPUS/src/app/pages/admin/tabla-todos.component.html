@@ -1,0 +1,288 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       Perfil Admin
+    - Desarrollador:    John David Guerrero Córdoba
+    - Descripción:      Perfil Admin con rutas hijas para CRUD de tablas
+    -Última modificación:  27/07/2019   
+-->
+<br>
+<h3 class="text-uppercase animated fadeIn fast">Usuarios</h3><br>
+
+<h6 class="text-left text-uppercase" style="margin-top: 2%">Usuarios Registrados (<small>{{ _usuarioService.totalUsuarios }}</small>)</h6>
+<input (keyup)="buscarUsuarios(input.value)" #input type="text" class="form-control uscoInputSearch" placeholder="" aria-describedby="basic-addon1" style="width:500px">
+
+<!--  TEMPORALMENTE COMENTARIADO.
+
+<h6 class="text-left text-uppercase" style="margin-top: 2%">Filtrar por:</h6>
+<select class="custom-select selectAdmin" style="width: 10%">
+  <option selected>Facultad</option>
+  <option value="1">Ingeniería</option>
+  <option value="2">Salúd</option>
+  <option value="3">Licenciatura</option>
+</select>
+<select class="custom-select selectAdmin" style="width: 10%">
+  <option selected>Programa</option>
+  <option value="1">Ingeniería de software</option>
+  <option value="2">Tecnología de software</option>
+</select>
+<select class="custom-select selectAdmin" style="width: 10%">
+  <option selected>Sede</option>
+  <option value="1">Neiva</option>
+  <option value="2">Garzón</option>
+  <option value="3">Pitalito</option>
+</select>
+<select class="custom-select selectAdmin" style="width: 10%">
+  <option selected>Rol</option>
+  <option value="1">Estudiante</option>
+  <option value="2">Profesor</option>
+</select>
+-->
+<div class="text-right" style="padding: 1%">
+    <button (click)="open(content)" class="btn btn-outline-dark" style="margin:2px"><span class="fas fa-user-plus fa-2x"></span></button>
+    <button class="btn btn-outline-dark" style="margin:2px"><span class="fas fa-redo-alt fa-2x"></span></button>
+</div>
+<div class="table-responsive-md  animated fadeIn fast">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="tablaAdmin">
+                <th scope="col" style="width: 5%" class="align-middle">ID</th>
+                <th scope="col" style="width: 5%" class="align-middle">
+                    Tipo de documento
+                </th>
+                <th scope="col" style="width: 10%" class="align-middle">Número del documento</th>
+                <th scope="col" style="width: 10%" class="align-middle">Nombre</th>
+                <th scope="col" style="width: 10%" class="align-middle">Apellido</th>
+                <th scope="col" style="width: 10%" class="align-middle">Genero</th>
+                <th scope="col" style="width: 10%" class="align-middle">Teléfono</th>
+                <th scope="col" style="width: 10%" class="align-middle">Código</th>
+                <th scope="col" style="width: 10%" class="align-middle">
+                    Tipo
+                </th>
+                <th scope="col" style="width: 10%" class="align-middle">
+                    Facultad
+                </th>
+                <th scope="col" style="width: 10%" class="align-middle">
+                    Programa
+                </th>
+                <th scope="col" style="width: 10%" class="align-middle">
+                    Sede
+                </th>
+                <th scope="col" style="width: 10%" class="align-middle">
+                    Rol
+                </th>
+                <th scope="col" style="width: 10%" class="align-middle colorRojo">
+                    Opciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios;  let i = index;">
+                <th scope="row">{{i+1}}</th>
+                <td>{{ usuario.tipoID}}</td>
+                <td>{{ usuario.numDocumento}}</td>
+                <td>{{ usuario.nombres}}</td>
+                <td>{{ usuario.apellidos}}</td>
+                <td>{{ usuario.genero}}</td>
+                <td>{{ usuario.telefono}}</td>
+                <td>{{ usuario.codigoUniversitario}}</td>
+                <td>{{ usuario.tipoUsuario}}</td>
+                <td>{{ usuario.facultad}}</td>
+                <td>{{ usuario.programaUniversitario}}</td>
+                <td>{{ usuario.sedeUniversitaria}}</td>
+                <td>{{ usuario.role}}</td>
+                <td>
+                    <div class="row">
+                        <div class="col text-left" style="width: 50%;padding: 2%">
+                            <button (click)="editarUsuarios(usuario)" class="btn btn-outline-success" style="width: 100%;padding: 0%"><span class="fas fa-pencil-alt"></span></button>
+                        </div>
+                        <div class="col text-right" style="width: 50%;padding: 2%">
+                            <button (click)="borrarUsuarios(usuario)" class="btn btn-outline-danger" style="width: 100%;padding: 0%"><span class="far fa-trash-alt"></span></button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col text-right">
+            <button (click)="cambiarDesde(-5)" class="btn btn-outline-dark" style="width: 50px;margin-right: 2px"><span class="fas fa-arrow-left"></span></button>
+            <input class="" type="text" value="1" style="width: 45px;height: 37px;margin: 0px;padding-bottom: 8px;text-align: center">
+            <button (click)="cambiarDesde(5)" class="btn btn-outline-dark" style="width: 50px;margin-left: 2px"><span class="fas fa-arrow-right"></span></button>
+        </div>
+    </div>
+</div>
+<!--Modal de agregar usuario-->
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Agregar Usuarios</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="forma" (ngSubmit)="agregarUsuario()">
+            <div class="form-group">
+                <label for="correo" class="font-weight-bold">CORREO:</label>
+                <div class="input-group">
+                    <input formControlName="email" name="email" type="text" id="email" placeholder="Digite su correo" class="uscoInputs form-control" maxlength="25" pattern="[^@]([A-Za-z0-9._]+){1,25}" required autofocus>
+                    <div class="input-group-append ">
+                        <span class="input-group-text input-inside-button">@usco.edu.co</span>
+                    </div>
+                </div>
+                <h6 *ngIf="email.invalid && (email.dirty || email.touched)" class="mt-2" style="color:red;">
+                    <div *ngIf="email.errors.required">
+                        El correo es requerido.
+                    </div>
+                    <div *ngIf="email.errors.pattern">
+                        El correo no es valido.
+                    </div>
+                </h6>
+            </div>
+            <div class="form-group">
+                <label for="password " class="font-weight-bold">CONTRASEÑA:</label><br>
+                <div class="mb-2 input-group">
+                    <!--Falla de seguridad--><input formControlName="password" (change)="somethingChanged()" name="password" type="password" id="password" placeholder="Digite su contraseña" class="uscoInputs form-control" maxlength="30" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,30}$"
+                        required>
+                    <div class=" input-group-append ">
+                        <button class="input-group-text input-inside-button " type="button" (click)="showpassword( 'password', 'showpass1')"><i class='far fa-eye-slash' id="showpass1"></i></button>
+                    </div>
+                </div>
+                <h6 *ngIf="password?.invalid && (password.dirty || password.touched)" class="mt-2" style="color: red;">
+                    <div *ngIf="password.errors.required">
+                        La contraseña es requerida.
+                    </div>
+                    <div *ngIf="password.errors.pattern">
+                        <p class="d-none" id="patternWrong"><i class='fas fa-exclamation-circle' style='color:red'></i> Usa 8 o más caracteres con una combinación de letras, números y símbolos</p>
+                    </div>
+                </h6>
+                <p class="" id="patternOkay">Usa 8 o más caracteres con una combinación de letras, números y símbolos</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <h6>TIPO DE USUARIO</h6>
+                    <select formControlName="tipoUsuario" name="tipoUsuario" class="custom-select uscoInputs mb-3">
+                            <option selected value="Estudiante">Estudiante</option>
+                            <option value="Docente">Docente</option>
+                            <option value="JefePrograma">Jefe de Programa</option>
+                        </select>
+                    <h6>TIPO DE IDENTIFICACION</h6>
+                    <select formControlName="tipoID" name="tipoID" class="custom-select uscoInputs mb-3">
+                            <option selected value="C.C">C.C</option>
+                            <option value="T.I">T.I</option>
+                        </select>
+                </div>
+                <div class="col-sm-7">
+                    <div *ngIf="tipoUsuario.value == 'Estudiante'" class="form-group">
+                        <label for="code" class="font-weight-bold">CÓDIGO ESTUDIANTIL</label>
+                        <input formControlName="codigoUniversitario" class="uscoInputs" type="text" name="code" placeholder="Digite su código" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' maxlength="11" required pattern="([0-9]){11}">
+                        <h6 *ngIf="codigoUniversitario.invalid && (codigoUniversitario.dirty || codigoUniversitario.touched)" class="mt-2" style="color: red;">
+                            <div *ngIf="codigoUniversitario.errors.required">
+                                El código universitario es requerido.
+                            </div>
+                            <div *ngIf="codigoUniversitario.errors.pattern">
+                                Deber ser de 11 carácteres solo numéricos.
+                            </div>
+                        </h6>
+                    </div>
+                    <div class="form-group">
+                        <label for="id" class="font-weight-bold">NÚMERO DE DOCUMENTO</label>
+                        <input formControlName="numDocumento" class="uscoInputs" type="text" name="id" placeholder="Digite su ID" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' maxlength="10" required pattern="([0-9]){8,10}">
+                        <h6 *ngIf="numDocumento.invalid && (numDocumento.dirty || numDocumento.touched)" class="mt-2" style="color:red;">
+                            <div *ngIf="numDocumento.errors.required">
+                                El número de documento es requerido.
+                            </div>
+                            <div *ngIf="numDocumento.errors.pattern">
+                                El ID es entre 8-10 carácteres solo numéricos.
+                            </div>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="nombre" class="font-weight-bold">NOMBRES</label>
+                        <input formControlName="nombres" type="text" class="uscoInputs" name="nombre" placeholder="Digite su nombre" onkeypress='return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 192 && event.charCode <= 255) || event.charCode ==32'
+                            maxlength="50" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+){2,50}" required autofocus>
+                        <h6 *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)" class="mt-2" style="color:red;">
+                            <div *ngIf="nombres.errors.required">
+                                EL nombre es requerido.
+                            </div>
+                            <div *ngIf="nombres.errors.pattern">
+                                El nombre no es valido.
+                            </div>
+                        </h6>
+                    </div>
+                    <h6>SEDE UNIVERSITARIA</h6>
+                    <select formControlName="sedeUniversitaria" name="cars" class="custom-select uscoInputs mb-3">
+                         
+                            <option value="Gárzon">Gárzon</option>
+                            <option value="La plata">La plata</option>
+                            <option selected value="Neiva">Neiva</option>
+                            <option value="Pitalito">Pitalito</option>
+                        </select>
+                    <h6>FACULTAD</h6>
+                    <select formControlName="facultad" name="cars" class="custom-select uscoInputs mb-3">
+                          
+                            <option selected value="Ingeniería">Ingeniería</option>
+                            
+                        </select>
+                    <h6>PROGRAMA</h6>
+                    <select formControlName="programaUniversitario" name="cars" class="custom-select uscoInputs mb-3">
+                            <option selected value="Ingeniería de software">Ingeniería de software</option>
+                        </select>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="code" class="font-weight-bold">APELLIDOS</label>
+                        <input formControlName="apellidos" class="uscoInputs" type="text" name="code" placeholder="Digite sus apellidos" onkeypress='return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 192 && event.charCode <= 255) || event.charCode ==32'
+                            maxlength="50" pattern="([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+){2,50}" required>
+                        <h6 *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)" class="mt-2" style="color:red;">
+                            <div *ngIf="apellidos.errors.required">
+                                Los apellidos son requeridos.
+                            </div>
+                            <div *ngIf="apellidos.errors.pattern">
+                                Los apellidos no son validos.
+                            </div>
+                        </h6>
+                    </div>
+                    <div class="form-group">
+                        <label for="id" class="font-weight-bold">TELÉFONO</label>
+                        <input formControlName="telefono" class="uscoInputs" type="text" name="id" placeholder="Digite su número teléfonico" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)' maxlength="10" required pattern="([0-9]){10}" required>
+                        <h6 *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="mt-2" style="color:red;">
+                            <div *ngIf="telefono.errors.required">
+                                El teléfono es requerido.
+                            </div>
+                            <div *ngIf="telefono.errors.pattern">
+                                El teléfono no es valido.
+                            </div>
+                        </h6>
+                    </div>
+                    <h6>GÉNERO:</h6>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="generoRadioM" formControlName="genero" name="genero" value="Masculino">
+                        <label class="custom-control-label" for="generoRadioM">Masculino</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="generoRadioF" formControlName="genero" name="genero" value="Femenino">
+                        <label class="custom-control-label" for="generoRadioF">Femenino</label>
+                    </div>
+                    <h6>ROLE</h6>
+                    <select formControlName="role" name="cars" class="custom-select uscoInputs mb-3">
+                         
+                            <option selected value="ADMIN_ROLE">ADMIN_ROLE</option>
+                            <option  value="USER_ROLE">USER_ROLE</option>
+                        </select>
+
+                </div>
+            </div>
+            <div class="txtcenter">
+                <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+                <input type="submit" value="SIGUIENTE" [disabled]="!forma.valid" class="btn uscoButton">
+            </div>
+        </form>
+    </div>
+</ng-template>
+<!--Cierre del modal de agregar-->

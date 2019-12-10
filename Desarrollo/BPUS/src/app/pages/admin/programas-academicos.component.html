@@ -1,0 +1,112 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       Perfil Admin
+    - Desarrollador:    John David Guerrero Córdoba
+    - Descripción:      Perfil Admin con rutas hijas para CRUD de tablas
+    -Última modificación:  27/07/2019   
+-->
+<br>
+<h3 class="text-uppercase animated fadeIn fast">Programas Académicos</h3><br>
+<h6 class="text-left text-uppercase" style="margin-top: 2%">Programas Registrados (<small>{{ _programaService.totalProgramas }}</small>)</h6>
+
+<div class="text-right" style="padding: 1%">
+    <button (click)="openModal(agregarPrograma)" class="btn btn-outline-dark" style="margin:2px"><span class="fas fa-user-plus fa-2x"></span></button>
+    <button class="btn btn-outline-dark" style="margin:2px"><span class="fas fa-redo-alt fa-2x"></span></button>
+</div>
+<div class="table-responsive-md animated fadeIn fast">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="tablaAdmin">
+                <th scope="col" style="width: 10%" class="align-middle">#</th>
+                <th scope="col" style="width: 10%" class="align-middle">Registro SNIES</th>
+                <th scope="col" style="width: 10%" class="align-middle">Nombre programa</th>
+                <th scope="col" style="width: 10%" class="align-middle">Número de creditos</th>
+                <th scope="col" style="width: 10%" class="align-middle">Nivel académico</th>
+                <th scope="col" style="width: 10%" class="align-middle">Titulo otorgado</th>
+                <th scope="col" style="width: 10%" class="align-middle">Modalidad de formación</th>
+                <th scope="col" style="width: 10%" class="align-middle">Jefe de programa</th>
+                <th scope="col" style="width: 10%" class="align-middle colorRojo">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let programa of programas;  let i = index;">
+                <th scope="row">{{i+1}}</th>
+                <td>{{ programa.SNIES}}</td>
+                <td>{{ programa.nombre}}</td>
+                <td>{{ programa.numCreditos}}</td>
+                <td>{{ programa.nivelAcademico}}</td>
+                <td>{{ programa.tituloOtogado}}</td>
+                <td>{{ programa.modalidadFormacion}}</td>
+                <td>{{ programa.jefePrograma}}</td>
+                <td>
+                    <div class="row">
+                        <div class="col text-left" style="width: 50%;padding: 2%">
+                            <button (click)="editarPrograma(programa)" class="btn btn-outline-success" style="width: 100%;padding: 0%"><span class="fas fa-pencil-alt"></span></button>
+                        </div>
+                        <div class="col text-right" style="width: 50%;padding: 2%">
+                            <button (click)="borrarProgramas(programa)" class="btn btn-outline-danger" style="width: 100%;padding: 0%"><span class="far fa-trash-alt"></span></button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col text-right">
+            <button (click)="cambiarDesde(-5)" class="btn btn-outline-dark" style="width: 50px;margin-right: 2px"><span class="fas fa-arrow-left"></span></button>
+            <input class="" type="text" value="1" style="width: 45px;height: 37px;margin: 0px;padding-bottom: 8px;text-align: center">
+            <button (click)="cambiarDesde(5)" class="btn btn-outline-dark" style="width: 50px;margin-left: 2px"><span class="fas fa-arrow-right"></span></button>
+        </div>
+    </div>
+</div>
+
+<!--Modal de agregar programa-->
+<ng-template #agregarPrograma let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Agregar Sede</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="forma" (ngSubmit)="crearPrograma()">
+            <div class="mt-3 form-group text-left">
+                <label for="correo" class="font-weight-bold text-uppercase">Registro SNIES:</label>
+                <input type="text" formControlName="registroSNIES" placeholder="Ingrese el Registro SNIES" class="uscoInputs form-control" maxlength="25" required autofocus>
+            </div>
+            <div class="form-group text-left">
+                <label for="correo" class="font-weight-bold text-uppercase">NOMBRE DEL PROGRAMA:</label>
+                <input type="text" formControlName="nombre" placeholder="Ingrese la ciudad" class="uscoInputs form-control" maxlength="25" required>
+            </div>
+            <div class="form-group text-left">
+                <label for="correo" class="font-weight-bold text-uppercase">Número de creditos:</label>
+                <input type="text" formControlName="numCreditos" placeholder="Ingrese la dirección" class="uscoInputs form-control" maxlength="25" required>
+            </div>
+            <div class="form-group text-left">
+                <label for="correo" class="font-weight-bold text-uppercase">Nivel académico:</label>
+                <input type="text" formControlName="nivelAcademico" placeholder="Ingrese el correo" class="uscoInputs form-control" maxlength="25" required>
+            </div>
+            <div class="form-group text-left">
+                <label for="correo" class="font-weight-bold text-uppercase">Titulo otorgado:</label>
+                <input type="text" formControlName="tituloOtorgado" placeholder="Ingrese el correo" class="uscoInputs form-control" maxlength="25" required>
+            </div>
+            <div class="form-group text-left">
+                <label for="correo" class="font-weight-bold text-uppercase">Modalidad de formación:</label>
+                <input type="text" formControlName="modalidadFormacion" placeholder="Ingrese el correo" class="uscoInputs form-control" maxlength="25" required>
+            </div>
+            <div class="form-group text-left">
+                <label for="jefePrograma" class="font-weight-bold">Jefe de programa</label>
+                <input type="text" formControlName="jefeProgramaCC" placeholder="Ingrese la c.c del jefe de programa" class="uscoInputs form-control" maxlength="10" required>
+            </div>
+            <div class="txtcenter">
+                <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+                <button type="submit" [disabled]="!forma.valid" class="btn uscoButton">CREAR</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+<!--Cierre del modal de agregar programa-->

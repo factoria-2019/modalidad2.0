@@ -1,0 +1,156 @@
+<!--
+    - Proyecto:         BPUS
+    - Componente:       Plantilla solicitud
+    - Desarrollador:    John David Guerrero Córdoba
+    - Descripción:      Plantilla de solicitud con tablas dinámicas
+    -Última modificación:  20/07/2019   
+-->
+<div class="container" style="margin-top: 20px">
+    <form>
+        <div class="row">
+            <div class="col-8 text-center">
+              <h4 class="uscoSesion">FORMULARIO DE INSCRIPCIÓN</h4>
+            </div>
+            <div class="col-4 text-center">
+              <h6 class="uscoSearchTitulo" style="margin: 0px;padding:0px;">Fecha:</h6>
+              <p class="uscoSesion" style="margin: 0px;padding:0px;font-size: 15px">{{jstoday}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+                <h5 class="uscoSearchTitulo text-uppercase text-center">Estudiantes</h5>
+                <table class="table table-bordered shadow p-3 mb-5 bg-white rounded">
+                    <thead class="text-center">
+                      <tr class="colorCafe">
+                        <th scope="col"><label class="uscoSesion text-uppercase " style="margin: 0px;padding:0px">No.</label></th>
+                        <th scope="col"><label class="uscoSesion text-uppercase " style="margin: 0px;padding:0px">Código</label></th>
+                        <th scope="col"><label class="uscoSesion text-uppercase " style="margin: 0px;padding:0px">Nombre completo</label></th>
+                        <th scope="col"><label class="uscoSesion text-uppercase " style="margin: 0px;padding:0px">confirmacion (firma)</label></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center">
+                        <th scope="row"><label class="uscoSesion text-uppercase" style="margin: 0px;padding:0px">1</label></th>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px" pattern="[0-9]{11}"></td>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                      </tr>
+                      <tr class="text-center">
+                        <th scope="row"><label class="uscoSesion text-uppercase" style="margin: 0px;padding:0px">2</label></th>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px" pattern="[0-9]{11}"></td>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                      </tr>
+                      <tr class="text-center">
+                        <th scope="row"><label class="uscoSesion text-uppercase" style="margin: 0px;padding:0px">3</label></th>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px" pattern="[0-9]{11}"></td>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                        <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-4 text-left" style="margin-top: 150px">
+              <button class="text-uppercase iconRadio" style="color: black;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px;background-color: white">
+                <span class="fas fa-plus-circle fa-lg"></span>
+                agregar
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class="row text-left">
+              <h5 class="uscoSearchTitulo text-uppercase text-center">informacion del proyecto</h5>
+            <div class="col">
+                <h5 class="uscoSesion text-uppercase">tipo de modalidad:</h5>
+                <div class="custom-control custom-checkbox">
+                    <div class="form-check">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label text-uppercase" style="color: black;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px" for="customCheck1" >proyecto de grado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2">
+                        <label class="custom-control-label text-uppercase" style="color: black;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px" for="customCheck2">pasantia</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="custom-control-input" id="customCheck3">
+                        <label class="custom-control-label text-uppercase" style="color: black;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px" for="customCheck3">postgrado</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="custom-control-input" id="customCheck4">
+                        <label class="custom-control-label text-uppercase" style="color: black;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px" for="customCheck4">empresa</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="custom-control-input" id="customCheck5">
+                        <label class="custom-control-label text-uppercase" style="color: black;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px" for="customCheck5">promedio académico de excelencia</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h5 class="uscoSesion text-uppercase">tipo de modalidad:</h5>
+                <input class="selectSearch " type="text" style="height: 50px">
+                <h5 class="uscoSesion text-uppercase" style="margin-top: 10px">cargar solicitud:</h5>
+                <div class="text-uppercase iconRadio divUpload">
+                    <span class="fas fa-upload fa-2x"></span>
+                    <input style="color: black;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px;background-color: white" class="inputUpload" type="file" name="file"/>
+                    subir documento
+                  </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col">
+                <h5 class="uscoSesion text-uppercase">Consejeros:</h5>
+                <input placeholder="BUSCA TU CONSEJERO" class="selectSearch " type="text" style="height: 50px;width: 400px">
+                <a class="text-uppercase iconRadio" style="color: black;margin-left: 10px;">
+                    <span class="fas fa-search fa-2x"></span>
+                  </a>
+              </div>
+              <div class="col">
+                  <table class="table table-bordered shadow p-3 mb-5 bg-white rounded">
+                      <thead class="text-center">
+                        <tr class="colorCafe">
+                          <th scope="col"><label class="uscoSesion text-uppercase " style="margin: 0px;padding:0px">No.</label></th>
+                          <th scope="col"><label class="uscoSesion text-uppercase " style="margin: 0px;padding:0px">Nombre</label></th>
+                          <th scope="col"><label class="uscoSesion text-uppercase " style="margin: 0px;padding:0px">apellido</label></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="text-center">
+                          <th scope="row"><label class="uscoSesion text-uppercase" style="margin: 0px;padding:0px">1</label></th>
+                          <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                          <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                        </tr>
+                        <tr class="text-center">
+                          <th scope="row"><label class="uscoSesion text-uppercase" style="margin: 0px;padding:0px">2</label></th>
+                          <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                          <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                        </tr>
+                        <tr class="text-center">
+                          <th scope="row"><label class="uscoSesion text-uppercase" style="margin: 0px;padding:0px">3</label></th>
+                          <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                          <td><input class="selectSearch " type="text" style="height: 30px;border: 0px"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-right">
+                  <button class="text-uppercase iconRadio" style="color: #8F141B ;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px;background-color: white">
+                    guardar  
+                    <span class="far fa-save fa-lg colorNegro"></span>
+                  </button>
+              </div>
+              <div class="col text-left">
+                  <button href="" class="text-uppercase iconRadio" style="color: #8F141B ;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px;background-color: white" onClick="window.print()">
+                      <span class="fas fa-download fa-lg colorNegro"></span>
+                      descargar
+                  </button>
+              </div>
+            </div>
+    </form>
+    <button routerLink="['../']" class="text-uppercase iconRadio" style="color:black ;font-size: 18px;font-family:Segoe UI;margin-bottom: 10px;background-color: white">
+      <span class="fas fa-arrow-circle-left fa-lg colorRojoContorno"></span>
+      atras
+    </button>
+</div>

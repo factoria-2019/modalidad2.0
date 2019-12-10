@@ -1,0 +1,11 @@
+ngx-dropzone {
+    margin: 20px;
+    &.custom-dropzone {
+        border-radius: 20px;
+        font-size: 20px;
+        color: black;
+        background: url("../../../assets/subirArchivo.png") no-repeat;
+        background-size: 40% 90%;
+        background-position: center;
+    }
+}
