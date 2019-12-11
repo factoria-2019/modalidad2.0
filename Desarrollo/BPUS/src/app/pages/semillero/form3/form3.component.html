@@ -4,29 +4,34 @@
         <h5 class="text-right textOrderForm">Formulario 3/4</h5>
 
     </div>
-    <form>
+    <form [formGroup]="registrationForm3" (ngSubmit)=onSubmit() novalidate>
         <div class="form-group">
-            <label for="exampleInputEmail1">Nombre del proyecto</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="">
+            <label >Nombre del proyecto</label>
+            <input type="text" class="form-control" formControlName="NombreProyecto" maxlength="50" onkeypress='return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 192 && event.charCode <= 255) || event.charCode ==32' id="exampleInputEmail1" aria-describedby="emailHelp"
+             autofocus autocomplete="off">
         </div>
+        <h6 *ngIf="isSubmitted && registrationForm3.controls.NombreProyecto.value == ''" class="mt-2" style="color: red;">
+            No se puede dejar este campo en blanco
+         </h6>
 
         <div class="form-group">
-            <label for="exampleInputEmail1">Objetivo general del proyecto</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label >Objetivo general del proyecto</label>
+        <textarea  formControlName="ObjetivoGp" onkeypress='return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 192 && event.charCode <= 255) || event.charCode ==32'
+              maxlength="339" ng-minlength="10" ng-model="ObjetivoGp" required autofocus  class="form-control"  rows="3" ></textarea>
+
         </div>
+        <h6 *ngIf="isSubmitted && registrationForm3.controls.ObjetivoGp.value == ''" class="mt-2" style="color: red;">
+            No se puede dejar este campo en blanco
+         </h6>
 
 
- 
 
-    
         <div class="nav nav-pills nav-fill mt-5">
             <!-- <button type="submit" class="nav-item btn btnFormInscripcionCancel btn-lg mx-2">Cancelar Proceso</button> -->
             <a class="nav-item btn btnFormInscripcionCancel btn-lg mx-2" routerLink="/semillero">Cancelar Proceso</a>
-
-
-            <a class="nav-item btn btn-lg mx-2 btnFormInscripcion" routerLink="/semillero/form4">Siguiente</a>
-        </div>
+            <a class="nav-item btn btn-lg mx-2 btnFormInscripcion" routerLink="/semillero/form2">Volver Atras</a>
+            <button class="nav-item btn btn-lg mx-2 btnFormInscripcion" type="submit">Siguiente</button>
+     </div>
 
     </form>
 </div>
