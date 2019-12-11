@@ -6,35 +6,43 @@
         <h5 class="text-right textOrderForm">Formulario 1/4</h5>
 
     </div>
-    <form [formGroup]="registrationForm" (ngSubmit)=onSubmit()>
+    <form [formGroup]="registrationForm" (ngSubmit)=onSubmit() novalidate>
         <div class="form-group">
             <label for="exampleInputEmail1">Programa o departamento</label>
-            <select id="inputState" class="form-control" formControlName="NombrePrograma" required>
-                <option selected>Seleccione</option>
+            <select id="inputState" class="form-control"  formControlName="NombrePrograma" required>
+                <option selected value="" >seleccione</option>
                 <option *ngFor="let programa of programas">{{programa.name}}</option>
 
             </select>
-          </div>
+        </div>
+
+        <h6 *ngIf="isSubmitted && registrationForm.controls.NombrePrograma.value == '' " class="mt-2" style="color: red;">
+            seleccione una opcion valida
+        </h6>
 
 
         <div class="form-group">
             <label for="exampleInputEmail1">Grupo de investigacion al que esta vinculado</label>
             <select id="inputState" class="form-control" formControlName="GrupoInvestigacion" required>
-                <option selected>Seleccione</option>
+                <option selected value="">seleccione</option>
                 <option *ngFor="let grupo of gruposInvestigacion">{{grupo.name}}</option>
             </select>
              </div>
-
+             <h6 *ngIf="isSubmitted && registrationForm.controls.GrupoInvestigacion.value == '' " class="mt-2" style="color: red;">
+                seleccione una opcion valida
+             </h6>
 
         <div class="form-group">
             <label for="exampleInputEmail1">Nombre del semillero</label>
             <select id="inputState" class="form-control" formControlName="NombreSemillero" required>
-                <option selected>Seleccione</option>
+                <option selected value="">Seleccione</option>
                 <option *ngFor="let semillero of semilleros">{{semillero.name}}</option>
             </select>
 
           </div>
-
+          <h6 *ngIf="isSubmitted && registrationForm.controls.NombreSemillero.value == '' " class="mt-2" style="color: red;">
+              seleccione una opcion valida
+          </h6>
 
         <div class="nav nav-pills nav-fill mt-5">
             <!-- <button type="submit" class="nav-item btn btnFormInscripcionCancel btn-lg mx-2">Cancelar Proceso</button> -->

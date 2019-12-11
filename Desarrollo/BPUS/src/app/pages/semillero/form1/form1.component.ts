@@ -1,5 +1,6 @@
-import { FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators,ReactiveFormsModule,FormArray } from '@angular/forms';
+import { Component, OnInit, NgModule } from '@angular/core';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -7,30 +8,45 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './form1.component.html',
   styles: []
 })
+@NgModule({
+  imports:[
+    ReactiveFormsModule
+  ],
+})
 export class Form1Component implements OnInit {
   isSubmitted = false;
-  constructor(public fb:FormBuilder) { }
+
+  constructor(public fb:FormBuilder, private router: Router) { }
 registrationForm= this.fb.group({
-
-
-
-
-  NombrePrograma:['',[Validators.required]],
+ NombrePrograma:['',[Validators.required]],
           GrupoInvestigacion:['',[Validators.required]],
           NombreSemillero:['',[Validators.required]]
+
 
 })
 onSubmit() {
   this.isSubmitted = true;
   if (!this.registrationForm.valid) {
+
     return false;
+
   } else {
-    alert(JSON.stringify(this.registrationForm.value))
+
+    this.router.navigate(['/semillero/form2']);
+
+
+
+
   }
 
+  }
+////////////////////////////////////////////////////////////////////////////////////7
+////////////////////////////////////////////////////////////////////////////////////
+// Getter method to access formcontrols
 
 
-}
+
+
   ngOnInit() {
   }
 
