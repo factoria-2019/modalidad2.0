@@ -9,10 +9,7 @@ de node usando el comando
 ```
 npm install
 ```
-para correrlo
-...
-npm start 
-...
+
 ### Dentro de google-signin-demo
 
 Existe un pequeño ejercicio para probar la

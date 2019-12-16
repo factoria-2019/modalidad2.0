@@ -6,6 +6,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var Schema = mongoose.Schema;
 
 var requisitos = new Schema({  
+    Id_Estudiante:{ type:Object, required:[true, 'El id del estudiante es necesario']},
     ficha_academica:{ type:String, required:[true, 'El grupo de investigacion es necesario']},
     semillero_activo:{ type:String, required:[true, 'El nombre del semillero es necesario']},
     proyecto_financiado:{ type:String, required:[true, 'El programa es necesario']},

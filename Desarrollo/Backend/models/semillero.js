@@ -8,13 +8,13 @@ var Schema = mongoose.Schema;
 
 
 var semillero = new Schema({  
-    nombre:{ type:String, required:[true, 'El nombre del semillero es necesario']},
-    director:{ type:String, required:[true, 'El director del semillero es necesario']},
-    tematica:{ type:String, required:[true, 'la tematica es necesario']},
-    descripcion:{ type:String, required:[true, 'la descripcion del semillero es necesario']},
-    grupo_inv:{ type:String, required:[true, 'grupo de investigacion al que pertenece es necesario']},
-    estado:{type:String,"default":"activo"},
-    fecha_solicitud:{type:Date, "default" : Date.now}
+    Nombre_Semi:{ type:String, required:[true, 'El nombre del semillero es necesario']},
+    Director_Semi:{ type:String, required:[true, 'El director del semillero es necesario']},
+    Tema_Semi:{ type:String, required:[true, 'la tematica es necesario']},
+    Descripcion_Semi:{ type:String, required:[true, 'la descripcion del semillero es necesario']},
+    Id_Grupo:{ type:Object, required:[true, 'grupo de investigacion al que pertenece es necesario']},
+    Estado_Semi:{type:String,"default":"activo"},
+    Fecha:{type:Date, "default" : Date.now}
 });
 
 

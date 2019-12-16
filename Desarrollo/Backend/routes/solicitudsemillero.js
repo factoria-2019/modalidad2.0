@@ -10,18 +10,17 @@ app.post('/',(req,res)=>{
 
     var body = req.body;
 
+    console.log(body)
     var semillero = new Semillero({ //referencia a una variable de tipo usuario
 
-        readicacion:body.readicacion,
-        grupoinvestigacion: body.grupoinvestigacion,
-        nombressemillero: body.nombressemillero,
-        programaUniversitario: body.programaUniversitario,
-        actividadessemillero:body.actividadessemillero,
-        tutorsemillero:body.tutorsemillero,
-        tematicaproyecto:body.tematicaproyecto,
-        objetivosgeneral: body.objetivosgeneral,
-        objetivosespecificos:body.objetivosespecificos,
-        justificacion: body.justificacion
+        Id_Estudiante: body.Id_Estudiante,
+        Id_Grupo: body.Id_Grupo,
+        Id_Semi: body.Id_Semi,
+        Actividad_Semi:body.Actividad_Semi,
+        Proyecto_Semi:body.Proyecto_Semi,
+        Objetivo_Semi: body.Objetivo_Semi,
+        Objetivo_Especifico_Semi:body.Objetivo_Especifico_Semi,
+        Justificacion_Semi: body.Justificacion_Semi
     }); 
 
     semillero.save((err,solicitudGuardado)=>{
@@ -68,17 +67,15 @@ Semillero.findById(id,(err,semillero)=>{
         });
     }
 
-
-    semillero.grupoinvestigacion= body.grupoinvestigacion;
-    semillero.nombressemillero= body.nombressemillero;
-    semillero.programaUniversitario= body.programaUniversitario;
-    semillero.actividadessemillero=body.actividadessemillero;
-    semillero.tutorsemillero=body.tutorsemillero;
-    semillero.tematicaproyecto=body.tematicaproyecto;
-    semillero.objetivosgeneral= body.objetivosgeneral;
-    semillero.objetivosespecificos=body.objetivosespecificos;
-    semillero.justificacion= body.justificacion;
-    semillero.estado=body.estado;
+    semillero.Id_Estudiante=body.Id_Estudiante;
+    semillero.Id_Grupo= body.grupoinvestigacion;
+    semillero.Id_Semi= body.Id_Semi;
+    semillero.Actividad_Semi=body.Actividad_Semi;
+    semillero.Proyecto_Semi=body.Proyecto_Semi;
+    semillero.Objetivo_Semi= body.Objetivo_Semi;
+    semillero.Objetivo_Especifico_Semi=body.Objetivo_Especifico_Semi;
+    semillero.Justificacion_Semi= body.Justificacion_Semi;
+    semillero.Estado_Semi=body.Estado_Semi;
 
     semillero.save((err,semilleroGuardado)=>{
 

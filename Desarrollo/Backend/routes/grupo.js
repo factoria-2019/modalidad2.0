@@ -12,12 +12,13 @@ app.post('/',(req,res)=>{
 
     var grupo_investigacion = new Grupo({ //referencia a una variable de tipo usuario
 
-        nombre: body.nombre,
-        director: body.director,
-        tematica: body.tematica,
-        descripcion:body.descripcion
+        Nombre_Grupo: body.Nombre_Grupo,
+        Director_Grupo: body.Director_Grupo,
+        Tema_Grupo: body.Tema_Grupo,
+        Descripcion_Grupo:body.Descripcion_Grupo
         
     }); 
+
 
     grupo_investigacion.save((err,solicitudGuardado)=>{
 
@@ -63,11 +64,11 @@ Grupo.findById(id,(err,grupo_inv)=>{
     }
 
 
-    grupo_inv.nombres = body.nombres;
-    grupo_inv.director= body.director;
-    grupo_inv.tematica = body.tematica;
-    grupo_inv.descripcion=body.descripcion;
-    grupo_inv.estado=body.estado;
+    grupo_inv.Nombre_Grupo = body.Nombre_Grupo;
+    grupo_inv.Director_Grupo= body.Director_Grupo;
+    grupo_inv.Tema_Grupo = body.Tema_Grupo;
+    grupo_inv.Descripcion_Grupo=body.Descripcion_Grupo;
+    grupo_inv.Estado=body.Estado;
     //semillero.grupo_inv=body.grupo_inv;
 
     grupo_inv.save((err,grupoGuardado)=>{
@@ -95,6 +96,48 @@ Grupo.findById(id,(err,grupo_inv)=>{
   
 
 });
+
+
+app.get('/', (req, res, next) => {
+
+
+
+    var desde = req.query.desde || 0;
+    desde = Number(desde);
+
+    // CAMBIO!!! -*-*-*-*-*-*-*
+    Grupo.find({}, 'Nombre_Grupo Director_Grupo Tema_Grupo Descripcion_Grupo Estado_Grupo').skip(desde).limit(99).exec(
+        (err, grupo) => {
+
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    mensaje: 'Error cargando programas!',
+                    errors: err
+                });
+            }
+
+
+            Grupo.count({}, (err, conteo) => {
+                res.status(200).json({
+                    ok: true,
+                    grupo: grupo,
+                    total: conteo
+                });
+            })
+
+
+
+
+        }); //Metodo de mongoose.
+
+
+
+
+
+});
+
+
 app.get('/id/:_id', (req, res) => {
     var _id = req.params._id;
     Grupo.findOne({_id:_id})

@@ -36,12 +36,14 @@ var anteProyecto = require('./routes/anteProyecto');
 var proyecto = require('./routes/proyecto');
 var articulo = require('./routes/articulo');
 var notificacion = require('./routes/notificacion');
-var solicitudsemillero = require('./routes/solicitudsemillero')
-var grupo_investigacion=require('./routes/grupo')
-var requisitos = require('./routes/requisitos')
+var solicitudsemillero = require('./routes/solicitudsemillero');
+var grupo_investigacion=require('./routes/grupo');
+var requisitos = require('./routes/requisitos');
 var usuarioRoutes = require('./routes/usuario');
 var loginRoutes = require('./routes/login');
-var semillero = require('./routes/semillero')
+var semillero = require('./routes/semillero');
+var sustentacion = require('./routes/sustencion')
+var certificado = require('./routes/certificado');
 //busqueda
 var busquedaRoutes = require('./routes/busqueda');
 //subir archivos
@@ -111,15 +113,17 @@ app.use('/anteProyecto', anteProyecto);
 app.use('/proyecto', proyecto);
 app.use('/articulo', articulo);
 app.use('/notificacion', notificacion);
-app.use('/semillero',semillero)
+app.use('/semillero',semillero);
 app.use('/solicitudsemillero', solicitudsemillero);
-app.use('/requisitos',requisitos)
+app.use('/requisitos',requisitos);
 app.use('/usuario', usuarioRoutes);
 app.use('/login', loginRoutes);
 app.use('/busqueda', busquedaRoutes);
 app.use('/upload', uploadRoutes);
 app.use('/img', imagenesRoutes);
-app.use('/grupoInvestigacion',grupo_investigacion)
+app.use('/certificado',certificado);
+app.use('/sustentacion',sustentacion);
+app.use('/grupoInvestigacion',grupo_investigacion);
 app.use('/', appRoutes);
 
 //Escuchar peticiones

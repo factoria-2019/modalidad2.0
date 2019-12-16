@@ -11,10 +11,10 @@ app.post('/',(req,res)=>{
 
     var sustentacion = new Sustentacion({ //referencia a una variable de tipo usuario
 
-        fecha_solicitud: body.fecha_solicitud,
-        lugar: body.lugar,
-        jurados: body.jurados,
-        estudiante:body.estudiante
+        Fecha: body.Fecha,
+        Lugar: body.Lugar,
+        Jurados: body.Jurados,
+        Id_Estudiante:body.Id_Estudiante
         
     }); 
 
@@ -62,11 +62,11 @@ Sustentacion.findById(id,(err,sustentacion)=>{
             errors:{message: 'No existe una sustentacion con ese ID'}
         });
     }
-    sustentacion.fecha_solicitud= body.fecha_solicitud;
-    sustentacion.lugar= body.lugar;
-    sustentacion.jurados= body.jurados;
-    sustentacion.estudiante=body.estudiante;
-    sustentacion.estado=body.estado;
+    sustentacion.Fecha= body.Fecha;
+    sustentacion.Lugar= body.Lugar;
+    sustentacion.Jurados= body.Jurados;
+    sustentacion.Id_Estudiante=body.Id_Estudiante;
+    sustentacion.Estado=body.Estado;
 
 
     sustentacion.save((err,sustentacionGuardado)=>{

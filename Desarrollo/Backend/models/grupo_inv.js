@@ -8,12 +8,12 @@ var Schema = mongoose.Schema;
 
 
 var grupo_investigacion = new Schema({  
-    nombre:{ type:String, required:[true, 'El nombre del grupo de investigacion es necesario']},
-    director:{ type:String, required:[true, 'El director del semillero es necesario']},
-    tematica:{ type:String, required:[true, 'la tematica es necesario']},
-    descripcion:{ type:String, required:[true, 'la descripcion del grupo de investigacion es necesario']},
-    estado:{type:String,"default":"activo"},
-    fecha_solicitud:{type:Date, "default" : Date.now}
+    Nombre_Grupo:{ type:String, required:[true, 'El nombre del grupo de investigacion es necesario']},
+    Director_Grupo:{ type:String, required:[true, 'El director del semillero es necesario']},
+    Tema_Grupo:{ type:String, required:[true, 'la tematica es necesario']},
+    Descripcion_Grupo:{ type:String, required:[true, 'la descripcion del grupo de investigacion es necesario']},
+    Estado:{type:String,"default":"activo"},
+    Fecha:{type:Date, "default" : Date.now}
 });
 
 
