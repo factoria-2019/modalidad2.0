@@ -25,7 +25,7 @@ export class NotificationsComponent implements OnInit {
   subir(){
     const fd = new FormData();
     fd.append('image', this.seleccionarArchivo, this.seleccionarArchivo.name);
-    this.http.post('http://localhost:4000/api/algo', fd, {
+    this.http.post('http://localhost:3000/models/requisitos', fd, {
       reportProgress: true,
       observe: 'events'
     }).subscribe( event => {

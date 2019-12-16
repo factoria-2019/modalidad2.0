@@ -14,7 +14,7 @@ var Solicitud = require('../models/solicitud');
 app.get('/', (req, res, next) => {
     var desde = req.query.desde || 0;
     desde = Number(desde);
-    Solicitud.find({}, 'tipoModalidad tituloProyecto estudiante1 estudiante2 estudiante3 consejero1 consejero2 consejero3 jefePrograma anteproyecto proyecto articulo').skip(desde).limit(50).exec(
+    Solicitud.find({}, 'fechaSolicitud tituloProyecto lineaInvestigacion estudiante1 estudiante2 estudiante3 pais departamento ciudad duracionProyectoMeses jefePrograma palabrasClaves resumenProyecto anteproyecto proyecto articulo').skip(desde).limit(50).exec(
         (err, solicitudes) => {
             if (err) {
                 return res.status(500).json({
@@ -64,15 +64,20 @@ app.put('/:id', (req, res) => {
             });
         }
 
-        solicitud.tipoModalidad = body.tipoModalidad;
+        solicitud.solicitanteId = body.solicitanteId;
+        solicitud.fechaSolicitud = body.fechaSolicitud;
         solicitud.tituloProyecto = body.tituloProyecto;
+        solicitud.lineaInvestigacion = body.lineaInvestigacion;
         solicitud.estudiante1 = body.estudiante1;
         solicitud.estudiante2 = body.estudiante2;
         solicitud.estudiante3 = body.estudiante3;
-        solicitud.consejero1 = body.consejero1;
-        solicitud.consejero2 = body.consejero2;
-        solicitud.consejero3 = body.consejero3;
+        solicitud.pais = body.pais;
+        solicitud.departamento = body.departamento;
+        solicitud.ciudad = body.ciudad;
+        solicitud.duracionProyectoMeses = body.duracionProyectoMeses;
         solicitud.jefePrograma = body.jefePrograma;
+        solicitud.palabrasClaves = body.palabrasClaves;
+        solicitud.resumenProyecto = body.resumenProyecto;
         solicitud.anteproyecto = body.anteproyecto;
         solicitud.proyecto = body.proyecto;
         solicitud.articulo = body.articulo;
@@ -101,15 +106,22 @@ app.post('/', (req, res) => {
     var body = req.body;
 
     var solicitud = new Solicitud({ //referencia a una variable de tipo solicitud
-        tipoModalidad: body.tipoModalidad,
+
+
+        solicitanteId: body.solicitanteId,
+        fechaSolicitud: body.fechaSolicitud,
         tituloProyecto: body.tituloProyecto,
+        lineaInvestigacion: body.lineaInvestigacion,
         estudiante1: body.estudiante1,
         estudiante2: body.estudiante2,
         estudiante3: body.estudiante3,
-        consejero1: body.consejero1,
-        consejero2: body.consejero2,
-        consejero3: body.consejero3,
+        pais: body.pais,
+        departamento: body.departamento,
+        ciudad: body.ciudad,
+        duracionProyectoMeses: body.duracionProyectoMeses,
         jefePrograma: body.jefePrograma,
+        palabrasClaves: body.palabrasClaves,
+        resumenProyecto: body.resumenProyecto,
         anteproyecto: body.anteproyecto,
         proyecto: body.proyecto,
         articulo: body.articulo

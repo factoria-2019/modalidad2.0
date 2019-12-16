@@ -36,9 +36,12 @@ var anteProyecto = require('./routes/anteProyecto');
 var proyecto = require('./routes/proyecto');
 var articulo = require('./routes/articulo');
 var notificacion = require('./routes/notificacion');
-
+var solicitudsemillero = require('./routes/solicitudsemillero')
+var grupo_investigacion=require('./routes/grupo')
+var requisitos = require('./routes/requisitos')
 var usuarioRoutes = require('./routes/usuario');
 var loginRoutes = require('./routes/login');
+var semillero = require('./routes/semillero')
 //busqueda
 var busquedaRoutes = require('./routes/busqueda');
 //subir archivos
@@ -48,15 +51,44 @@ var imagenesRoutes = require('./routes/imagenes');
 
 //Conexion a la base de datos.
 
-//--------- Cambiar nombre a BPUS !!!!!!! ---------------
-mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', (err, res) => {
+/*
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://bpus:qbsnHKkJk3oXqO6X@cluster0-dyvkj.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
+
+*/
+
+
+
+mongoose.connect('mongodb+srv://admin:FHSVF17O0qXq9U05@cluster0-y0ner.mongodb.net/factoria', (err, res) => {
     //--------- Cambiar nombre a BPUS !!!!!!! ---------------
 
     if (err) throw err;
 
     console.log('Base de datos: \x1b[32m%s\x1b[0m', 'online');
-
+    console.log('Version del mongoose:',mongoose.version)
 });
+
+/*
+
+// LOCAL BD
+
+mongoose.connect('mongodb://localhost:27017/bpusBD', (err, res) => {
+    //--------- Cambiar nombre a BPUS !!!!!!! ---------------
+
+    if (err) throw err;
+
+    console.log('Base de datos: \x1b[32m%s\x1b[0m', 'online');
+    console.log('Version del mongoose:',mongoose.version)
+});
+*/
 
 // Server index config
 /*
@@ -79,13 +111,15 @@ app.use('/anteProyecto', anteProyecto);
 app.use('/proyecto', proyecto);
 app.use('/articulo', articulo);
 app.use('/notificacion', notificacion);
-
+app.use('/semillero',semillero)
+app.use('/solicitudsemillero', solicitudsemillero);
+app.use('/requisitos',requisitos)
 app.use('/usuario', usuarioRoutes);
 app.use('/login', loginRoutes);
 app.use('/busqueda', busquedaRoutes);
 app.use('/upload', uploadRoutes);
 app.use('/img', imagenesRoutes);
-
+app.use('/grupoInvestigacion',grupo_investigacion)
 app.use('/', appRoutes);
 
 //Escuchar peticiones

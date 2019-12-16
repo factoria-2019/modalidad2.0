@@ -25,7 +25,7 @@ app.get('/',(req,res,next)=>{
     desde=Number(desde);
 
 // CAMBIO!!! -*-*-*-*-*-*-*
-    Usuario.find({},'nombres apellidos email telefono tipoUsuario tipoID numDocumento genero codigoUniversitario sedeUniversitaria facultad programaUniversitario role').skip(desde).limit(5).exec( 
+    Usuario.find({},'nombres apellidos email telefono tipoUsuario tipoID numDocumento genero codigoUniversitario sedeUniversitaria facultad programaUniversitario role id').skip(desde).limit(5).exec( 
         (err,usuarios)=>{
 
         if(err){
@@ -104,7 +104,7 @@ app.get('/:numDocumento', (req, res) => {
             if (!usuario) {
                 return res.status(400).json({
                     ok: false,
-                    mensaje: 'El usuario con el id ' + numDocumento + 'no existe',
+                    mensaje: 'El usuario con el identificación  ' + numDocumento + 'no existe',
                     errors: { message: 'No existe un usuario con ese ID' }
                 });
             }
@@ -114,6 +114,35 @@ app.get('/:numDocumento', (req, res) => {
             });
         })
     })
+
+// ==========================================
+// Obtener usuario por ID.
+// ==========================================
+    app.get('/id/:_id', (req, res) => {
+        var _id = req.params._id;
+        Usuario.findOne({_id:_id})
+        .populate('usuario', '_id')
+            .exec((err, usuario) => {
+                if (err) {
+                    return res.status(500).json({
+                        ok: false,
+                        mensaje: 'Error al buscar usuario por _id',
+                        errors: err
+                    });
+                }
+                if (!usuario) {
+                    return res.status(400).json({
+                        ok: false,
+                        mensaje: 'El usuario con el _id ' + id + ' no existe',
+                        errors: { message: 'No existe un usuario con ese _id' }
+                    });
+                }
+                res.status(200).json({
+                ok: true,
+                usuario: usuario
+                });
+            })
+        })
 
 //===============================================
 //  Verificar token
