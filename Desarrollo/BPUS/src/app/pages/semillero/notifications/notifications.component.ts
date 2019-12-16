@@ -19,7 +19,7 @@ export class NotificationsComponent implements OnInit {
   constructor(private http: HttpClient){}
 
   elArchivoSeleccionado(event){
-    this.seleccionarArchivo = <File>event.target.files[0]; 
+    this.seleccionarArchivo = <File>event.target.files[0];
   }
 
   subir(){
@@ -35,16 +35,12 @@ export class NotificationsComponent implements OnInit {
         console.log(event);
       }
     });
-  
+
     this.revision = true;
     this.botonArchivo = false;
 
   }
 
   ngOnInit() {
-    //$("#upfile1").click(function () {
-    //  $("#file1").trigger('click');
-  //});
   }
 }
-

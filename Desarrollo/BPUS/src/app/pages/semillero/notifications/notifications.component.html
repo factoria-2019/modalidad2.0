@@ -1,124 +1,103 @@
-<script>
-$("#upfile1").click(function () {
-    $("#file1").trigger('click');
-});
-</script>
 <div class="container col-6">
-    <h2 class="text-left mt-5"><strong>Semillero UscoSoft</strong></h2>
-    <div class="d-flex justify-content-between mt-5 mb-5">
-        <h4 class="text-left"> <strong>Requisitos</strong></h4>
-        <h4 class="text-left"><strong>Estado</strong></h4>
-    </div>
+  <h2 class="text-left mt-5"><strong>Semillero UscoSoft</strong></h2>
+  <div class="d-flex justify-content-between mt-5 mb-5">
+      <h4 class="text-left"> <strong>Requisitos</strong></h4>
+      <h4 class="text-left"><strong>Estado</strong></h4>
+  </div>
 
 
-    <div class="d-flex justify-content-between my-2">
-        <div class="text-left">
-            <h3>Ficha academica</h3>
-            <h6 class="h6">Haber aprobado la asignatura de seminario modalidad de grado.</h6>
-        </div>
-        <div class="text-right textOrderForm">
-            <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
-            <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
-                <div *ngIf="botonArchivo">
-                    <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
-                </div>
-                <div *ngIf="revision">
-                    <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
-                </div>
-            </button>
-        </div>
-    </div>
+  <div class="d-flex justify-content-between my-2">
+      <div class="text-left">
+          <h3>Ficha academica</h3>
+          <h6 class="h6">Haber aprobado la asignatura de seminario modalidad de grado.</h6>
+      </div>
+      <div class="text-right textOrderForm">
+          <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
+          <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
+              <div *ngIf="botonArchivo">
+                  <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
+              </div>
+              <div *ngIf="revision">
+                  <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
+              </div>
+          </button>
+      </div>
+  </div>
 
 
-    <div class="d-flex justify-content-between my-2">
-            <div class="text-left">
-                <h3>Semillero Activo</h3>
-                <h6 class="h6">Permanecer en un semillero activo de la Universidad Surcolombiana.</h6>
-            </div>
-            <div class="text-right textOrderForm">
-                <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
-                <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
-                    <div *ngIf="botonArchivo">
-                        <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
-                    </div>
-                    <div *ngIf="revision">
-                        <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
-                    </div>
-                </button>
-            </div>
-        </div>
+  <div class="d-flex justify-content-between my-2">
+          <div class="text-left">
+              <h3>Semillero Activo</h3>
+              <h6 class="h6">Permanecer en un semillero activo de la Universidad Surcolombiana.</h6>
+          </div>
+          <div class="text-right textOrderForm">
+              <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
+              <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
+                  <div *ngIf="botonArchivo">
+                      <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
+                  </div>
+                  <div *ngIf="revision">
+                      <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
+                  </div>
+              </button>
+          </div>
+      </div>
 
-        <div class="d-flex justify-content-between my-2">
-                <div class="text-left">
-                    <h3>Proyecto Financiado</h3>
-                    <h6 class="h6">Tener un proyecto financiado, ejcutado al interior del semillero.</h6>
-                </div>
-                <div class="text-right textOrderForm">
-<<<<<<< HEAD
-                  <input type="file"><img class="" src="../../assets/img/cloudFiles.png" width="50" alt="View">
+      <div class="d-flex justify-content-between my-2">
+              <div class="text-left">
+                  <h3>Proyecto Financiado</h3>
+                  <h6 class="h6">Tener un proyecto financiado, ejcutado al interior del semillero.</h6>
+              </div>
+              <div class="text-right textOrderForm">
+                  <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
+                  <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
+                      <div *ngIf="botonArchivo">
+                          <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
+                      </div>
+                      <div *ngIf="revision">
+                          <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
+                      </div>
+                  </button>
+              </div>
+          </div>
 
-                <input type="file" id="file1" name="image" accept="image/*" capture style="display:none"/>
-                <img src="../../assets/img/cloudFiles.png" width="50" alt="View" id="upfile1" style="cursor:pointer" />
+          <div class="d-flex justify-content-between my-2">
+                  <div class="text-left">
+                      <h3>Articulo Cientifico</h3>
+                      <h6 class="h6">Tener como producto del proyecto, al menos un articulo publicado en revista.</h6>
+                  </div>
+                  <div class="text-right textOrderForm">
+                      <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
+                      <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
+                          <div *ngIf="botonArchivo">
+                              <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
+                          </div>
+                          <div *ngIf="revision">
+                              <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
+                          </div>
+                      </button>
+                  </div>
+              </div>
 
+              <div class="d-flex justify-content-between my-2">
+                      <div class="text-left">
+                          <h3>Patente en Evento</h3>
+                          <h6 class="h6">Realizar la sustentacion publica en la Facultad del producto del semillero.</h6>
+                      </div>
+                      <div class="text-right textOrderForm">
+                          <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
+                          <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
+                              <div *ngIf="botonArchivo">
+                                  <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
+                              </div>
+                              <div *ngIf="revision">
+                                  <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
+                              </div>
+                          </button>
+                      </div>
+                  </div>
 
-=======
-                    <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
-                    <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
-                        <div *ngIf="botonArchivo">
-                            <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
-                        </div>
-                        <div *ngIf="revision">
-                            <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
-                        </div>
-                    </button>
->>>>>>> 113648d811bec6b95fed6e77e0400c9eb09a0829
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-between my-2">
-                    <div class="text-left">
-                        <h3>Articulo Cientifico</h3>
-                        <h6 class="h6">Tener como producto del proyecto, al menos un articulo publicado en revista.</h6>
-                    </div>
-                    <div class="text-right textOrderForm">
-                        <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
-                        <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
-                            <div *ngIf="botonArchivo">
-                                <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
-                            </div>
-                            <div *ngIf="revision">
-                                <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-between my-2">
-                        <div class="text-left">
-                            <h3>Patente en Evento</h3>
-                            <h6 class="h6">Realizar la sustentacion publica en la Facultad del producto del semillero.</h6>
-                        </div>
-                        <div class="text-right textOrderForm">
-                            <input style="display: none;" type="file" (change)="elArchivoSeleccionado($event)" #fileInput>
-                            <button style="border: 0; background: transparent;" type="button" (click)="fileInput.click()">
-                                <div *ngIf="botonArchivo">
-                                    <img src="../../assets/img/cloudFiles.png" width="50" alt="Enviar">
-                                </div>
-                                <div *ngIf="revision">
-                                    <img src="../../assets/img/linecheck.png" width="50" alt="Enviar">
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-
-<<<<<<< HEAD
-                    <button type="button" routerLink="/semillero"
-                    class="btn btn-lg my-3 mx-2 uscobtninscripcion">Inicio Semillero</button>
-
+                 <!-- <button type="button" routerLink="/semillero"
+                  class="btn btn-lg my-3 mx-2 uscobtninscripcion">Inicio Semillero</button>-->
+    <div>              <button class="btn btn-md my-3 mx-2 uscobtninscripcion" type="button" (click)="subir()">Enviar Archivos</button>
 </div>
-=======
-                   <!-- <button type="button" routerLink="/semillero"
-                    class="btn btn-lg my-3 mx-2 uscobtninscripcion">Inicio Semillero</button>-->
-                    <button class="btn btn-md my-3 mx-2 uscobtninscripcion" type="button" (click)="subir()">Enviar Archivos</button>
-</div>
->>>>>>> 113648d811bec6b95fed6e77e0400c9eb09a0829
