@@ -66,7 +66,7 @@ onSubmit() {
     { id: 1, name: 'Grupo02' },
     { id: 2, name: 'Grupo03' },
     { id: 4, name: 'Grupo04' },
-    { id: 5, name: 'Grupo05' }
+    { id: 5, name: 'Grupo05' },
   ]
 
   semilleros = [
@@ -74,7 +74,7 @@ onSubmit() {
     { id: 1, name: 'Semillero02' },
     { id: 2, name: 'Semillero03' },
     { id: 4, name: 'Semillero04' },
-    { id: 5, name: 'Semillero05' }
+    { id: 5, name: 'Semillero05' },
   ]
 
 }
