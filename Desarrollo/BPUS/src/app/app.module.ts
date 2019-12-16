@@ -23,6 +23,9 @@ import { ServiceModule } from './services/service.module';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+// modulos http
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -45,7 +48,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    ServiceModule
+    ServiceModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
