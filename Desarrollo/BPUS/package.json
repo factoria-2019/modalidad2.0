@@ -28,7 +28,7 @@
     "jquery": "^3.4.1",
     "ng-unity": "0.0.4",
     "ngx-dropzone": "^1.2.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.3",
     "sweetalert2": "^8.19.0",
